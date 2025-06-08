@@ -1,0 +1,14 @@
+D:\TichPhan\data\AIDIMS.BACKEND\AIDIMS.Core\obj\Debug\net9.0\AIDIMS.Core.csproj.AssemblyReference.cache
+D:\TichPhan\data\AIDIMS.BACKEND\AIDIMS.Core\obj\Debug\net9.0\AIDIMS.Core.GeneratedMSBuildEditorConfig.editorconfig
+D:\TichPhan\data\AIDIMS.BACKEND\AIDIMS.Core\obj\Debug\net9.0\AIDIMS.Core.AssemblyInfoInputs.cache
+D:\TichPhan\data\AIDIMS.BACKEND\AIDIMS.Core\obj\Debug\net9.0\AIDIMS.Core.AssemblyInfo.cs
+D:\TichPhan\data\AIDIMS.BACKEND\AIDIMS.Core\obj\Debug\net9.0\AIDIMS.Core.csproj.CoreCompileInputs.cache
+D:\TichPhan\data\AIDIMS.BACKEND\AIDIMS.Core\bin\Debug\net9.0\AIDIMS.Core.deps.json
+D:\TichPhan\data\AIDIMS.BACKEND\AIDIMS.Core\bin\Debug\net9.0\AIDIMS.Core.runtimeconfig.json
+D:\TichPhan\data\AIDIMS.BACKEND\AIDIMS.Core\bin\Debug\net9.0\AIDIMS.Core.dll
+D:\TichPhan\data\AIDIMS.BACKEND\AIDIMS.Core\bin\Debug\net9.0\AIDIMS.Core.pdb
+D:\TichPhan\data\AIDIMS.BACKEND\AIDIMS.Core\obj\Debug\net9.0\AIDIMS.Core.dll
+D:\TichPhan\data\AIDIMS.BACKEND\AIDIMS.Core\obj\Debug\net9.0\refint\AIDIMS.Core.dll
+D:\TichPhan\data\AIDIMS.BACKEND\AIDIMS.Core\obj\Debug\net9.0\AIDIMS.Core.pdb
+D:\TichPhan\data\AIDIMS.BACKEND\AIDIMS.Core\obj\Debug\net9.0\AIDIMS.Core.genruntimeconfig.cache
+D:\TichPhan\data\AIDIMS.BACKEND\AIDIMS.Core\obj\Debug\net9.0\ref\AIDIMS.Core.dll

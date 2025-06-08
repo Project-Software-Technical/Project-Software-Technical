@@ -1,0 +1,4 @@
+D:\TichPhan\data\AIDIMS.BACKEND\AIDIMS.Services\obj\Debug\net9.0\AIDIMS.Services.GeneratedMSBuildEditorConfig.editorconfig
+D:\TichPhan\data\AIDIMS.BACKEND\AIDIMS.Services\obj\Debug\net9.0\AIDIMS.Services.AssemblyInfoInputs.cache
+D:\TichPhan\data\AIDIMS.BACKEND\AIDIMS.Services\obj\Debug\net9.0\AIDIMS.Services.AssemblyInfo.cs
+D:\TichPhan\data\AIDIMS.BACKEND\AIDIMS.Services\obj\Debug\net9.0\AIDIMS.Services.csproj.CoreCompileInputs.cache
