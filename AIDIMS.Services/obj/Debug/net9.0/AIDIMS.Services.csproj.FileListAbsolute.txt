@@ -2,3 +2,17 @@ D:\TichPhan\data\AIDIMS.BACKEND\AIDIMS.Services\obj\Debug\net9.0\AIDIMS.Services
 D:\TichPhan\data\AIDIMS.BACKEND\AIDIMS.Services\obj\Debug\net9.0\AIDIMS.Services.AssemblyInfoInputs.cache
 D:\TichPhan\data\AIDIMS.BACKEND\AIDIMS.Services\obj\Debug\net9.0\AIDIMS.Services.AssemblyInfo.cs
 D:\TichPhan\data\AIDIMS.BACKEND\AIDIMS.Services\obj\Debug\net9.0\AIDIMS.Services.csproj.CoreCompileInputs.cache
+D:\TichPhan\data\AIDIMS.BACKEND\AIDIMS.Services\bin\Debug\net9.0\AIDIMS.Services.deps.json
+D:\TichPhan\data\AIDIMS.BACKEND\AIDIMS.Services\bin\Debug\net9.0\AIDIMS.Services.dll
+D:\TichPhan\data\AIDIMS.BACKEND\AIDIMS.Services\bin\Debug\net9.0\AIDIMS.Services.pdb
+D:\TichPhan\data\AIDIMS.BACKEND\AIDIMS.Services\bin\Debug\net9.0\AIDIMS.Core.dll
+D:\TichPhan\data\AIDIMS.BACKEND\AIDIMS.Services\bin\Debug\net9.0\AIDIMS.Repositories.dll
+D:\TichPhan\data\AIDIMS.BACKEND\AIDIMS.Services\bin\Debug\net9.0\AIDIMS.Core.pdb
+D:\TichPhan\data\AIDIMS.BACKEND\AIDIMS.Services\bin\Debug\net9.0\AIDIMS.Repositories.pdb
+D:\TichPhan\data\AIDIMS.BACKEND\AIDIMS.Services\obj\Debug\net9.0\AIDIMS.Services.csproj.AssemblyReference.cache
+D:\TichPhan\data\AIDIMS.BACKEND\AIDIMS.Services\obj\Debug\net9.0\AIDIMS.Services.sourcelink.json
+D:\TichPhan\data\AIDIMS.BACKEND\AIDIMS.Services\obj\Debug\net9.0\AIDIMS.S.564D5B6F.Up2Date
+D:\TichPhan\data\AIDIMS.BACKEND\AIDIMS.Services\obj\Debug\net9.0\AIDIMS.Services.dll
+D:\TichPhan\data\AIDIMS.BACKEND\AIDIMS.Services\obj\Debug\net9.0\refint\AIDIMS.Services.dll
+D:\TichPhan\data\AIDIMS.BACKEND\AIDIMS.Services\obj\Debug\net9.0\AIDIMS.Services.pdb
+D:\TichPhan\data\AIDIMS.BACKEND\AIDIMS.Services\obj\Debug\net9.0\ref\AIDIMS.Services.dll

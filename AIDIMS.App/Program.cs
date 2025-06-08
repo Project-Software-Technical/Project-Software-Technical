@@ -1,5 +1,4 @@
 using AIDIMS.Core.Data;
-using AIDIMS.Core.Interfaces;
 using AIDIMS.Repositories.Impl;
 using AIDIMS.Repositories.Interfaces;
 using AIDIMS.Services.Impl;
@@ -7,9 +6,21 @@ using AIDIMS.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using System.Diagnostics;
+using System.Net;
 using System.Runtime.InteropServices;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Cấu hình để lắng nghe trên tất cả các địa chỉ IP
+builder.WebHost.ConfigureKestrel(options =>
+{
+    options.Listen(IPAddress.Any, 5000); // HTTP
+    options.Listen(IPAddress.Any, 5001, listenOptions =>
+    {
+        // Tạm thời tắt HTTPS để dễ truy cập, trong môi trường production nên bật lại và cấu hình chứng chỉ
+        listenOptions.UseHttps();
+    });
+});
 
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
@@ -52,10 +63,29 @@ if (app.Environment.IsDevelopment())
         c.RoutePrefix = string.Empty;
     });
 
+    // Hiển thị URL truy cập
+    Console.WriteLine("=======================================================");
+    Console.WriteLine("Ứng dụng đang chạy tại:");
+    Console.WriteLine($"- HTTP: http://localhost:5000");
+    Console.WriteLine($"- HTTPS: https://localhost:5001");
+
+    // Lấy địa chỉ IP của máy
+    var hostName = Dns.GetHostName();
+    var ips = Dns.GetHostAddresses(hostName)
+        .Where(ip => ip.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork)
+        .Select(ip => ip.ToString());
+
+    foreach (var ip in ips)
+    {
+        Console.WriteLine($"- HTTP: http://{ip}:5000");
+        Console.WriteLine($"- HTTPS: https://{ip}:5001");
+    }
+    Console.WriteLine("=======================================================");
+
     // Tự động mở trình duyệt khi khởi động trong môi trường Development
     if (builder.Configuration.GetValue<bool>("OpenBrowserOnStartup", true))
     {
-        string url = app.Urls.FirstOrDefault() ?? "http://localhost:5111";
+        string url = "http://localhost:5000";
         OpenBrowser(url);
     }
 }

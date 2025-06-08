@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\TichPhan\\data\\AIDIMS.BACKEND\\AIDIMS.App\\AIDIMS.App.csproj": {}
+    "D:\\TichPhan\\data\\AIDIMS.BACKEND\\AIDIMS.APp\\AIDIMS.App.csproj": {}
   },
   "projects": {
-    "D:\\TichPhan\\data\\AIDIMS.BACKEND\\AIDIMS.App\\AIDIMS.App.csproj": {
+    "D:\\TichPhan\\data\\AIDIMS.BACKEND\\AIDIMS.APp\\AIDIMS.App.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\TichPhan\\data\\AIDIMS.BACKEND\\AIDIMS.App\\AIDIMS.App.csproj",
+        "projectUniqueName": "D:\\TichPhan\\data\\AIDIMS.BACKEND\\AIDIMS.APp\\AIDIMS.App.csproj",
         "projectName": "AIDIMS.App",
-        "projectPath": "D:\\TichPhan\\data\\AIDIMS.BACKEND\\AIDIMS.App\\AIDIMS.App.csproj",
+        "projectPath": "D:\\TichPhan\\data\\AIDIMS.BACKEND\\AIDIMS.APp\\AIDIMS.App.csproj",
         "packagesPath": "C:\\Users\\thanh\\.nuget\\packages\\",
-        "outputPath": "D:\\TichPhan\\data\\AIDIMS.BACKEND\\AIDIMS.App\\obj\\",
+        "outputPath": "D:\\TichPhan\\data\\AIDIMS.BACKEND\\AIDIMS.APp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

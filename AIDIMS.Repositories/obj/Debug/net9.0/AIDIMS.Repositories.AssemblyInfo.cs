@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AIDIMS.Repositories")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+76049eac470298345892dfa8ad7fa88ad7fe0bbe")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c53a3ef75b26511fc443495dccecd2ec6bd9b1c8")]
 [assembly: System.Reflection.AssemblyProductAttribute("AIDIMS.Repositories")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AIDIMS.Repositories")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

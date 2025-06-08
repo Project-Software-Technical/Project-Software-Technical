@@ -1,0 +1,16 @@
+D:\TichPhan\data\AIDIMS.BACKEND\AIDIMS.Repositories\bin\Debug\net9.0\AIDIMS.Repositories.deps.json
+D:\TichPhan\data\AIDIMS.BACKEND\AIDIMS.Repositories\bin\Debug\net9.0\AIDIMS.Repositories.dll
+D:\TichPhan\data\AIDIMS.BACKEND\AIDIMS.Repositories\bin\Debug\net9.0\AIDIMS.Repositories.pdb
+D:\TichPhan\data\AIDIMS.BACKEND\AIDIMS.Repositories\bin\Debug\net9.0\AIDIMS.Core.dll
+D:\TichPhan\data\AIDIMS.BACKEND\AIDIMS.Repositories\bin\Debug\net9.0\AIDIMS.Core.pdb
+D:\TichPhan\data\AIDIMS.BACKEND\AIDIMS.Repositories\obj\Debug\net9.0\AIDIMS.Repositories.csproj.AssemblyReference.cache
+D:\TichPhan\data\AIDIMS.BACKEND\AIDIMS.Repositories\obj\Debug\net9.0\AIDIMS.Repositories.GeneratedMSBuildEditorConfig.editorconfig
+D:\TichPhan\data\AIDIMS.BACKEND\AIDIMS.Repositories\obj\Debug\net9.0\AIDIMS.Repositories.AssemblyInfoInputs.cache
+D:\TichPhan\data\AIDIMS.BACKEND\AIDIMS.Repositories\obj\Debug\net9.0\AIDIMS.Repositories.AssemblyInfo.cs
+D:\TichPhan\data\AIDIMS.BACKEND\AIDIMS.Repositories\obj\Debug\net9.0\AIDIMS.Repositories.csproj.CoreCompileInputs.cache
+D:\TichPhan\data\AIDIMS.BACKEND\AIDIMS.Repositories\obj\Debug\net9.0\AIDIMS.Repositories.sourcelink.json
+D:\TichPhan\data\AIDIMS.BACKEND\AIDIMS.Repositories\obj\Debug\net9.0\AIDIMS.R.82B50C05.Up2Date
+D:\TichPhan\data\AIDIMS.BACKEND\AIDIMS.Repositories\obj\Debug\net9.0\AIDIMS.Repositories.dll
+D:\TichPhan\data\AIDIMS.BACKEND\AIDIMS.Repositories\obj\Debug\net9.0\refint\AIDIMS.Repositories.dll
+D:\TichPhan\data\AIDIMS.BACKEND\AIDIMS.Repositories\obj\Debug\net9.0\AIDIMS.Repositories.pdb
+D:\TichPhan\data\AIDIMS.BACKEND\AIDIMS.Repositories\obj\Debug\net9.0\ref\AIDIMS.Repositories.dll

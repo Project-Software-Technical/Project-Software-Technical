@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AIDIMS.Core")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d06cf7118f59bc9593d223ed23bda504483577ef")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c53a3ef75b26511fc443495dccecd2ec6bd9b1c8")]
 [assembly: System.Reflection.AssemblyProductAttribute("AIDIMS.Core")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AIDIMS.Core")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
