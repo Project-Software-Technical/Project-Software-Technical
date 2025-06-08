@@ -6,5 +6,6 @@
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\AIDIMS.Core\AIDIMS.Core.csproj" />
+    <ProjectReference Include="..\AIDIMS.Repositories\AIDIMS.Repositories.csproj" />
   </ItemGroup>
 </Project>
