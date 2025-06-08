@@ -12,3 +12,4 @@ D:\TichPhan\data\AIDIMS.BACKEND\AIDIMS.Core\obj\Debug\net9.0\refint\AIDIMS.Core.
 D:\TichPhan\data\AIDIMS.BACKEND\AIDIMS.Core\obj\Debug\net9.0\AIDIMS.Core.pdb
 D:\TichPhan\data\AIDIMS.BACKEND\AIDIMS.Core\obj\Debug\net9.0\AIDIMS.Core.genruntimeconfig.cache
 D:\TichPhan\data\AIDIMS.BACKEND\AIDIMS.Core\obj\Debug\net9.0\ref\AIDIMS.Core.dll
+D:\TichPhan\data\AIDIMS.BACKEND\AIDIMS.Core\obj\Debug\net9.0\AIDIMS.Core.sourcelink.json

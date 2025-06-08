@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
+using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
@@ -15,17 +16,17 @@ namespace AIDIMS.Core.Migrations
                 name: "HospitalStaffs",
                 columns: table => new
                 {
-                    StaffID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    FullName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    BirthDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Gender = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
-                    Address = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
-                    Phone = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    Position = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    Status = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    StaffID = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    FullName = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
+                    BirthDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    Gender = table.Column<string>(type: "character varying(20)", maxLength: 20, nullable: false),
+                    Address = table.Column<string>(type: "character varying(200)", maxLength: 200, nullable: false),
+                    Phone = table.Column<string>(type: "character varying(20)", maxLength: 20, nullable: false),
+                    Email = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
+                    Position = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
+                    Status = table.Column<string>(type: "character varying(20)", maxLength: 20, nullable: false),
+                    CreatedDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -36,15 +37,15 @@ namespace AIDIMS.Core.Migrations
                 name: "Patients",
                 columns: table => new
                 {
-                    PatientID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    FullName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    BirthDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Gender = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
-                    Address = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
-                    Phone = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    PatientID = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    FullName = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
+                    BirthDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    Gender = table.Column<string>(type: "character varying(20)", maxLength: 20, nullable: false),
+                    Address = table.Column<string>(type: "character varying(200)", maxLength: 200, nullable: false),
+                    Phone = table.Column<string>(type: "character varying(20)", maxLength: 20, nullable: false),
+                    Email = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
+                    CreatedDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -55,10 +56,10 @@ namespace AIDIMS.Core.Migrations
                 name: "Roles",
                 columns: table => new
                 {
-                    RoleID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    RoleName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false)
+                    RoleID = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    RoleName = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
+                    Description = table.Column<string>(type: "character varying(255)", maxLength: 255, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -69,13 +70,13 @@ namespace AIDIMS.Core.Migrations
                 name: "Services",
                 columns: table => new
                 {
-                    ServiceID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    ServiceName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: false),
-                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    Status = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    ServiceID = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    ServiceName = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
+                    Description = table.Column<string>(type: "character varying(500)", maxLength: 500, nullable: false),
+                    Price = table.Column<decimal>(type: "numeric", nullable: false),
+                    Status = table.Column<string>(type: "character varying(20)", maxLength: 20, nullable: false),
+                    CreatedDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -86,16 +87,16 @@ namespace AIDIMS.Core.Migrations
                 name: "MedicalRecords",
                 columns: table => new
                 {
-                    RecordID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    PatientID = table.Column<int>(type: "int", nullable: false),
-                    StaffID = table.Column<int>(type: "int", nullable: false),
-                    Symptoms = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: false),
-                    ExaminationDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Diagnosis = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: false),
-                    Result = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: false),
-                    Status = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    RecordID = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    PatientID = table.Column<int>(type: "integer", nullable: false),
+                    StaffID = table.Column<int>(type: "integer", nullable: false),
+                    Symptoms = table.Column<string>(type: "character varying(500)", maxLength: 500, nullable: false),
+                    ExaminationDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    Diagnosis = table.Column<string>(type: "character varying(500)", maxLength: 500, nullable: false),
+                    Result = table.Column<string>(type: "character varying(500)", maxLength: 500, nullable: false),
+                    Status = table.Column<string>(type: "character varying(20)", maxLength: 20, nullable: false),
+                    CreatedDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -118,14 +119,14 @@ namespace AIDIMS.Core.Migrations
                 name: "Users",
                 columns: table => new
                 {
-                    UserID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    StaffID = table.Column<int>(type: "int", nullable: false),
-                    RoleID = table.Column<int>(type: "int", nullable: false),
-                    Username = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    Password = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Status = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false)
+                    UserID = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    StaffID = table.Column<int>(type: "integer", nullable: false),
+                    RoleID = table.Column<int>(type: "integer", nullable: false),
+                    Username = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
+                    Password = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
+                    CreatedDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    Status = table.Column<string>(type: "character varying(20)", maxLength: 20, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -148,14 +149,14 @@ namespace AIDIMS.Core.Migrations
                 name: "DiagnosisResults",
                 columns: table => new
                 {
-                    DiagnosisResultID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    RecordID = table.Column<int>(type: "int", nullable: false),
-                    DoctorConclusion = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: false),
-                    DiagnosisDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ResultDescription = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: false),
-                    Notes = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: false),
-                    Status = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false)
+                    DiagnosisResultID = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    RecordID = table.Column<int>(type: "integer", nullable: false),
+                    DoctorConclusion = table.Column<string>(type: "character varying(500)", maxLength: 500, nullable: false),
+                    DiagnosisDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    ResultDescription = table.Column<string>(type: "character varying(1000)", maxLength: 1000, nullable: false),
+                    Notes = table.Column<string>(type: "character varying(500)", maxLength: 500, nullable: false),
+                    Status = table.Column<string>(type: "character varying(20)", maxLength: 20, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -172,18 +173,18 @@ namespace AIDIMS.Core.Migrations
                 name: "DicomImages",
                 columns: table => new
                 {
-                    ImageID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    RecordID = table.Column<int>(type: "int", nullable: false),
-                    TechnicianID = table.Column<int>(type: "int", nullable: true),
-                    DoctorNotes = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: false),
-                    AIFeedback = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: false),
-                    IsApproved = table.Column<bool>(type: "bit", nullable: false),
-                    FilePath = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
-                    ImageType = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    ImageID = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    RecordID = table.Column<int>(type: "integer", nullable: false),
+                    TechnicianID = table.Column<int>(type: "integer", nullable: true),
+                    DoctorNotes = table.Column<string>(type: "character varying(500)", maxLength: 500, nullable: false),
+                    AIFeedback = table.Column<string>(type: "character varying(500)", maxLength: 500, nullable: false),
+                    IsApproved = table.Column<bool>(type: "boolean", nullable: false),
+                    FilePath = table.Column<string>(type: "character varying(255)", maxLength: 255, nullable: false),
+                    ImageType = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
                     FileSize = table.Column<long>(type: "bigint", nullable: false),
-                    Resolution = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    Resolution = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
+                    CreatedDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -205,14 +206,14 @@ namespace AIDIMS.Core.Migrations
                 name: "ImagingRequests",
                 columns: table => new
                 {
-                    RequestID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    RecordID = table.Column<int>(type: "int", nullable: false),
-                    ServiceID = table.Column<int>(type: "int", nullable: false),
-                    RequestDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ExecutionDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    Notes = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: false),
-                    Status = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false)
+                    RequestID = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    RecordID = table.Column<int>(type: "integer", nullable: false),
+                    ServiceID = table.Column<int>(type: "integer", nullable: false),
+                    RequestDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    ExecutionDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
+                    Notes = table.Column<string>(type: "character varying(500)", maxLength: 500, nullable: false),
+                    Status = table.Column<string>(type: "character varying(20)", maxLength: 20, nullable: false)
                 },
                 constraints: table =>
                 {
