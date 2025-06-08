@@ -8,6 +8,8 @@ using Microsoft.OpenApi.Models;
 using System.Diagnostics;
 using System.Net;
 using System.Runtime.InteropServices;
+using AutoMapper;
+using AIDIMS.App.Mapping;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,6 +23,26 @@ builder.WebHost.ConfigureKestrel(options =>
         listenOptions.UseHttps();
     });
 });
+
+// Thêm cấu hình CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", builder =>
+    {
+        builder.AllowAnyOrigin()
+               .AllowAnyMethod()
+               .AllowAnyHeader();
+    });
+});
+
+// Thêm cấu hình AutoMapper
+var mapperConfig = new MapperConfiguration(mc =>
+{
+    mc.AddProfile(new MappingProfile());
+});
+
+IMapper mapper = mapperConfig.CreateMapper();
+builder.Services.AddSingleton(mapper);
 
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
@@ -91,6 +113,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+// Sử dụng CORS
+app.UseCors("AllowAll");
 
 app.UseAuthorization();
 

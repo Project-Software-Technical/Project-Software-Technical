@@ -1,160 +1,77 @@
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
-using AIDIMS.Core.Models;
+using AIDIMS.Core.DTOs.Request;
+using AIDIMS.Core.DTOs.Response;
 using AIDIMS.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AIDIMS.App.Controllers.API
 {
-    [ApiController]
     [Route("api/[controller]")]
+    [ApiController]
     public class RoleController : ControllerBase
     {
         private readonly IRoleService _roleService;
-        private readonly ILogger<RoleController> _logger;
 
-        public RoleController(IRoleService roleService, ILogger<RoleController> logger)
+        public RoleController(IRoleService roleService)
         {
             _roleService = roleService;
-            _logger = logger;
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Role>>> GetAllRoles()
+        public async Task<IActionResult> GetAll(int pageNumber = 1, int pageSize = 10)
         {
-            try
-            {
-                var roles = await _roleService.GetAllAsync();
-                return Ok(roles);
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "Error occurred while getting all roles");
-                return StatusCode(500, "Internal server error");
-            }
-        }
-
-        [HttpGet("paged")]
-        public async Task<ActionResult<IEnumerable<Role>>> GetPagedRoles(int pageNumber = 1, int pageSize = 10)
-        {
-            try
-            {
-                if (pageNumber < 1 || pageSize < 1)
-                {
-                    return BadRequest("Page number and page size must be greater than 0");
-                }
-
-                var roles = await _roleService.GetAllAsync(pageNumber, pageSize);
-                var count = await _roleService.CountAsync();
-
-                var result = new
-                {
-                    Total = count,
-                    PageSize = pageSize,
-                    CurrentPage = pageNumber,
-                    TotalPages = (int)Math.Ceiling(count / (double)pageSize),
-                    Roles = roles
-                };
-
-                return Ok(result);
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "Error occurred while getting paged roles");
-                return StatusCode(500, "Internal server error");
-            }
+            var result = await _roleService.GetAllAsync(pageNumber, pageSize);
+            return Ok(result);
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Role>> GetRoleById(int id)
+        public async Task<IActionResult> GetById(int id)
         {
-            try
-            {
-                var role = await _roleService.GetByIdAsync(id.ToString());
-                if (role == null)
-                {
-                    return NotFound($"Role with ID {id} not found");
-                }
+            var result = await _roleService.GetByIdAsync(id);
+            if (result == null)
+                return NotFound();
 
-                return Ok(role);
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "Error occurred while getting role by id: {Id}", id);
-                return StatusCode(500, "Internal server error");
-            }
+            return Ok(result);
         }
 
         [HttpPost]
-        public async Task<ActionResult<Role>> CreateRole([FromBody] Role role)
+        public async Task<IActionResult> Create(CreateRoleRequest request)
         {
-            try
-            {
-                if (role == null)
-                {
-                    return BadRequest("Role cannot be null");
-                }
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
 
-                var createdRole = await _roleService.AddAsync(role);
-                return CreatedAtAction(nameof(GetRoleById), new { id = createdRole.RoleID }, createdRole);
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "Error occurred while creating role");
-                return StatusCode(500, "Internal server error");
-            }
+            var result = await _roleService.CreateAsync(request);
+            return CreatedAtAction(nameof(GetById), new { id = result.RoleID }, result);
         }
-
         [HttpPut("{id}")]
-        public async Task<ActionResult<Role>> UpdateRole(int id, [FromBody] Role role)
+        public async Task<IActionResult> Update(int id, UpdateRoleRequest request)
         {
-            try
-            {
-                if (role == null)
-                {
-                    return BadRequest("Role cannot be null");
-                }
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
 
-                if (id != role.RoleID)
-                {
-                    return BadRequest("Role ID mismatch");
-                }
+            var result = await _roleService.UpdateAsync(id, request);
+            if (result == null)
+                return NotFound();
 
-                var existingRole = await _roleService.GetByIdAsync(id.ToString());
-                if (existingRole == null)
-                {
-                    return NotFound($"Role with ID {id} not found");
-                }
-
-                var updatedRole = await _roleService.UpdateAsync(role);
-                return Ok(updatedRole);
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "Error occurred while updating role with id: {Id}", id);
-                return StatusCode(500, "Internal server error");
-            }
+            return Ok(result);
         }
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult> DeleteRole(int id)
+        public async Task<IActionResult> Delete(int id)
         {
-            try
-            {
-                var result = await _roleService.DeleteByIdAsync(id.ToString());
-                if (!result)
-                {
-                    return NotFound($"Role with ID {id} not found");
-                }
+            var result = await _roleService.DeleteByIdAsync(id);
+            if (!result)
+                return NotFound();
 
-                return NoContent();
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "Error occurred while deleting role with id: {Id}", id);
-                return StatusCode(500, "Internal server error");
-            }
+            return NoContent();
+        }
+
+        [HttpGet("count")]
+        public async Task<IActionResult> Count()
+        {
+            var count = await _roleService.CountAsync();
+            return Ok(count);
         }
     }
 }

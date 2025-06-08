@@ -13,7 +13,7 @@ namespace AIDIMS.Core.Interfaces
         /// </summary>
         /// <param name="id">Id của bản ghi cần xóa</param>
         /// <returns>True nếu xóa thành công, false nếu thất bại</returns>
-        Task<bool> DeleteByIdAsync(string id);
+        Task<bool> DeleteByIdAsync(int id);
 
     }
 }

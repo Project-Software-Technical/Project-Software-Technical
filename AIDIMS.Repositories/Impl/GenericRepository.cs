@@ -34,7 +34,7 @@ namespace AIDIMS.Repositories.Impl
                 .ToListAsync();
         }
 
-        public virtual async Task<T?> GetByIdAsync(string id)
+        public virtual async Task<T?> GetByIdAsync(int id)
         {
             return await _dbSet.FindAsync(id);
         }
@@ -55,11 +55,22 @@ namespace AIDIMS.Repositories.Impl
             return entity;
         }
 
-        public virtual async Task<T> UpdateAsync(T entity)
+        public virtual async Task<T> UpdateAsync(int id, T entity)
         {
-            _dbSet.Update(entity);
-            await SaveChangesAsync();
-            return entity;
+            var existingEntity = await GetByIdAsync(id);
+            if (existingEntity == null)
+            {
+                throw new KeyNotFoundException($"Entity with id {id} not found.");
+            }
+
+            // Assuming T has a method to update its properties from another instance
+            // This could be done using AutoMapper or manually setting properties
+            _dbContext.Entry(existingEntity).CurrentValues.SetValues(entity);
+            {
+                _dbSet.Update(entity);
+                await SaveChangesAsync();
+                return entity;
+            }
         }
 
         public virtual async Task<int> SaveChangesAsync()
@@ -71,7 +82,7 @@ namespace AIDIMS.Repositories.Impl
 
         #region DeleteRepository
 
-        public virtual async Task<bool> DeleteByIdAsync(string id)
+        public virtual async Task<bool> DeleteByIdAsync(int id)
         {
             var entity = await GetByIdAsync(id);
             if (entity == null)

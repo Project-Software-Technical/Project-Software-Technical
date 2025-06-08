@@ -6,28 +6,35 @@ using System.Threading.Tasks;
 
 namespace AIDIMS.Core.Interfaces
 {
-    public interface IReadService<T> where T : class
+    public class PagedResponse<T> where T : class
     {
-        /// <summary>
-        /// Lấy danh sách tất cả bản ghi
-        /// </summary>
-        /// <returns>Danh sách các bản ghi</returns>
-        Task<IEnumerable<T>> GetAllAsync();
+        public IEnumerable<T> Items { get; set; }
+        public int TotalCount { get; set; }
+        public int PageNumber { get; set; }
+        public int PageSize { get; set; }
+        public int TotalPages => (int)Math.Ceiling(TotalCount / (double)PageSize);
+    }
+
+
+
+    public interface IReadService<T, TResponse> where T : class where TResponse : class
+    {
+
 
         /// <summary>
-        /// Lấy danh sách có phân trang
+        /// Lấy danh sách có phân trang dưới dạng DTO
         /// </summary>
         /// <param name="pageNumber">Số trang</param>
         /// <param name="pageSize">Kích thước trang</param>
-        /// <returns>Danh sách các bản ghi được phân trang</returns>
-        Task<IEnumerable<T>> GetAllAsync(int pageNumber, int pageSize);
+        /// <returns>Danh sách các DTO được phân trang</returns>
+        Task<PagedResponse<TResponse>> GetAllAsync(int pageNumber, int pageSize);
 
         /// <summary>
-        /// Lấy bản ghi theo Id
+        /// Lấy bản ghi theo Id dưới dạng DTO
         /// </summary>
         /// <param name="id">Id của bản ghi</param>
-        /// <returns>Bản ghi theo Id</returns>
-        Task<T?> GetByIdAsync(string id);
+        /// <returns>DTO theo Id</returns>
+        Task<TResponse> GetByIdAsync(int id);
 
         /// <summary>
         /// Lấy tổng số bản ghi

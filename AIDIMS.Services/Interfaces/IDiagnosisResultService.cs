@@ -3,8 +3,8 @@ using AIDIMS.Core.Models;
 
 namespace AIDIMS.Services.Interfaces
 {
-    public interface IDiagnosisResultService : ICoreService<DiagnosisResult>
-    {
-        // Kế thừa từ ICoreService, không cần thêm phương thức khác
-    }
+    // public interface IDiagnosisResultService : ICoreService<DiagnosisResult>
+    // {
+    //     // Kế thừa từ ICoreService, không cần thêm phương thức khác
+    // }
 }

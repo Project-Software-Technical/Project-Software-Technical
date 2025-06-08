@@ -8,4 +8,7 @@
     <ProjectReference Include="..\AIDIMS.Core\AIDIMS.Core.csproj" />
     <ProjectReference Include="..\AIDIMS.Repositories\AIDIMS.Repositories.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="14.0.0" />
+  </ItemGroup>
 </Project>
