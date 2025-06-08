@@ -17,5 +17,6 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AIDIMS.Repositories\AIDIMS.Repositories.csproj" />
+    <ProjectReference Include="..\AIDIMS.Services\AIDIMS.Services.csproj" />
   </ItemGroup>
 </Project>

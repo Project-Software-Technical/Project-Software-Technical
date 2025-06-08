@@ -1,4 +1,9 @@
-using AIDIMS.Repositories.Data;
+using AIDIMS.Core.Data;
+using AIDIMS.Core.Interfaces;
+using AIDIMS.Repositories.Impl;
+using AIDIMS.Repositories.Interfaces;
+using AIDIMS.Services.Impl;
+using AIDIMS.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using System.Diagnostics;
@@ -14,16 +19,25 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SwaggerDoc("v1", new OpenApiInfo { 
-        Title = "AIDIMS API", 
+    c.SwaggerDoc("v1", new OpenApiInfo
+    {
+        Title = "AIDIMS API",
         Version = "v1",
         Description = "API cho hệ thống quản lý thông tin chẩn đoán AI (AIDIMS)"
     });
 });
 
 // Đăng ký DbContext với PostgreSQL
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
+builder.Services.AddDbContext<AIDIMSDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+// Đăng ký Repositories
+builder.Services.AddScoped<IRoleRepository, RoleRepository>();
+// Thêm các repository khác ở đây
+
+// Đăng ký Services
+builder.Services.AddScoped<IRoleService, RoleService>();
+// Thêm các service khác ở đây
 
 var app = builder.Build();
 
@@ -31,12 +45,13 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI(c => {
+    app.UseSwaggerUI(c =>
+    {
         c.SwaggerEndpoint("/swagger/v1/swagger.json", "AIDIMS API v1");
         // Đặt Swagger UI là trang mặc định
         c.RoutePrefix = string.Empty;
     });
-    
+
     // Tự động mở trình duyệt khi khởi động trong môi trường Development
     if (builder.Configuration.GetValue<bool>("OpenBrowserOnStartup", true))
     {

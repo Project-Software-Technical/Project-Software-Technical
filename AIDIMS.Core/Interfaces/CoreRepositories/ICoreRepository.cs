@@ -2,7 +2,7 @@ using System;
 
 namespace AIDIMS.Core.Interfaces
 {
-    public interface IGenericRepository<T> : IReadRepository<T>, IWriteRepository<T>, IDeleteRepository<T>
+    public interface ICoreRepository<T> : IReadRepository<T>, IWriteRepository<T>, IDeleteRepository<T>
         where T : class
     {
         // Đây là interface kết hợp, không cần khai báo thêm các phương thức

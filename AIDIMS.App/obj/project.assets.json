@@ -1889,6 +1889,20 @@
         "runtime": {
           "bin/placeholder/AIDIMS.Repositories.dll": {}
         }
+      },
+      "AIDIMS.Services/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "dependencies": {
+          "AIDIMS.Core": "1.0.0",
+          "AIDIMS.Repositories": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/AIDIMS.Services.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/AIDIMS.Services.dll": {}
+        }
       }
     }
   },
@@ -5518,11 +5532,17 @@
       "type": "project",
       "path": "../AIDIMS.Repositories/AIDIMS.Repositories.csproj",
       "msbuildProject": "../AIDIMS.Repositories/AIDIMS.Repositories.csproj"
+    },
+    "AIDIMS.Services/1.0.0": {
+      "type": "project",
+      "path": "../AIDIMS.Services/AIDIMS.Services.csproj",
+      "msbuildProject": "../AIDIMS.Services/AIDIMS.Services.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net9.0": [
       "AIDIMS.Repositories >= 1.0.0",
+      "AIDIMS.Services >= 1.0.0",
       "Microsoft.AspNetCore.OpenApi >= 9.0.5",
       "Microsoft.EntityFrameworkCore.Design >= 9.0.5",
       "Npgsql.EntityFrameworkCore.PostgreSQL >= 9.0.4",
@@ -5563,6 +5583,9 @@
           "projectReferences": {
             "D:\\TichPhan\\data\\AIDIMS.BACKEND\\AIDIMS.Repositories\\AIDIMS.Repositories.csproj": {
               "projectPath": "D:\\TichPhan\\data\\AIDIMS.BACKEND\\AIDIMS.Repositories\\AIDIMS.Repositories.csproj"
+            },
+            "D:\\TichPhan\\data\\AIDIMS.BACKEND\\AIDIMS.Services\\AIDIMS.Services.csproj": {
+              "projectPath": "D:\\TichPhan\\data\\AIDIMS.BACKEND\\AIDIMS.Services\\AIDIMS.Services.csproj"
             }
           }
         }

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AIDIMS.App")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ea6cc8b0e5c96a5ca5390bd78f252be1d1102b15")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a81ecdc5aac1b27591a9915b57b1dcb105ecb380")]
 [assembly: System.Reflection.AssemblyProductAttribute("AIDIMS.App")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AIDIMS.App")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

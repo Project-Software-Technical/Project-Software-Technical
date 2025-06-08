@@ -3,8 +3,7 @@ using AIDIMS.Core.Models;
 
 namespace AIDIMS.Repositories.Interfaces
 {
-    public interface IDiagnosisResultRepository : IGenericRepository<DiagnosisResult>
+    public interface IDiagnosisResultRepository : ICoreRepository<DiagnosisResult>
     {
-        // Kế thừa từ IGenericRepository, không cần thêm phương thức khác
     }
 }

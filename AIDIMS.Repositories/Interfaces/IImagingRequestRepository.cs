@@ -3,8 +3,7 @@ using AIDIMS.Core.Models;
 
 namespace AIDIMS.Repositories.Interfaces
 {
-    public interface IImagingRequestRepository : IGenericRepository<ImagingRequest>
+    public interface IImagingRequestRepository : ICoreRepository<ImagingRequest>
     {
-        // Kế thừa từ IGenericRepository, không cần thêm phương thức khác
     }
 }

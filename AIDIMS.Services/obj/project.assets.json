@@ -1161,6 +1161,21 @@
         "runtime": {
           "bin/placeholder/AIDIMS.Core.dll": {}
         }
+      },
+      "AIDIMS.Repositories/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "dependencies": {
+          "AIDIMS.Core": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "9.0.5",
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "9.0.4"
+        },
+        "compile": {
+          "bin/placeholder/AIDIMS.Repositories.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/AIDIMS.Repositories.dll": {}
+        }
       }
     }
   },
@@ -3118,11 +3133,17 @@
       "type": "project",
       "path": "../AIDIMS.Core/AIDIMS.Core.csproj",
       "msbuildProject": "../AIDIMS.Core/AIDIMS.Core.csproj"
+    },
+    "AIDIMS.Repositories/1.0.0": {
+      "type": "project",
+      "path": "../AIDIMS.Repositories/AIDIMS.Repositories.csproj",
+      "msbuildProject": "../AIDIMS.Repositories/AIDIMS.Repositories.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net9.0": [
-      "AIDIMS.Core >= 1.0.0"
+      "AIDIMS.Core >= 1.0.0",
+      "AIDIMS.Repositories >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -3159,6 +3180,9 @@
           "projectReferences": {
             "D:\\TichPhan\\data\\AIDIMS.BACKEND\\AIDIMS.Core\\AIDIMS.Core.csproj": {
               "projectPath": "D:\\TichPhan\\data\\AIDIMS.BACKEND\\AIDIMS.Core\\AIDIMS.Core.csproj"
+            },
+            "D:\\TichPhan\\data\\AIDIMS.BACKEND\\AIDIMS.Repositories\\AIDIMS.Repositories.csproj": {
+              "projectPath": "D:\\TichPhan\\data\\AIDIMS.BACKEND\\AIDIMS.Repositories\\AIDIMS.Repositories.csproj"
             }
           }
         }

@@ -15,7 +15,5 @@ namespace AIDIMS.Services.Impl
         {
             _roleRepository = roleRepository;
         }
-
-        // Có thể bổ sung các phương thức đặc biệt cho Role ở đây nếu cần
     }
 }
