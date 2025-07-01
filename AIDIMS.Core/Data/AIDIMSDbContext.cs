@@ -34,6 +34,11 @@ namespace AIDIMS.Core.Data
                 .WithMany(r => r.Users)
                 .HasForeignKey(u => u.RoleID);
 
+            // Đảm bảo Email duy nhất
+            modelBuilder.Entity<User>()
+                .HasIndex(u => u.Email)
+                .IsUnique();
+
             modelBuilder.Entity<MedicalRecord>()
                 .HasOne(m => m.Patient)
                 .WithMany(p => p.MedicalRecords)

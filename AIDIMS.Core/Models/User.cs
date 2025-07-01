@@ -16,8 +16,9 @@ namespace AIDIMS.Core.Models
         public int RoleID { get; set; }
 
         [Required]
-        [StringLength(50)]
-        public string Username { get; set; }
+        [StringLength(100)]
+        [EmailAddress]
+        public string Email { get; set; }
 
         [Required]
         [StringLength(100)]

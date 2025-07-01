@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AIDIMS.Services")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c53a3ef75b26511fc443495dccecd2ec6bd9b1c8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+010402ae5d38ac0caa92acce30be4420699477b4")]
 [assembly: System.Reflection.AssemblyProductAttribute("AIDIMS.Services")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AIDIMS.Services")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

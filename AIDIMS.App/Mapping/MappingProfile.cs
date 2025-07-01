@@ -13,6 +13,55 @@ namespace AIDIMS.App.Mapping
             CreateMap<Role, RoleResponse>();
             CreateMap<CreateRoleRequest, Role>();
             CreateMap<UpdateRoleRequest, Role>();
+
+            // Patient mappings
+            CreateMap<Patient, PatientResponse>();
+            CreateMap<CreatePatientRequest, Patient>();
+            CreateMap<UpdatePatientRequest, Patient>();
+
+            // HospitalStaff mappings
+            CreateMap<HospitalStaff, HospitalStaffResponse>();
+            CreateMap<CreateHospitalStaffRequest, HospitalStaff>();
+            CreateMap<UpdateHospitalStaffRequest, HospitalStaff>();
+
+            // User mappings
+            CreateMap<User, UserResponse>()
+                .ForMember(dest => dest.RoleName, opt => opt.MapFrom(src => src.Role.RoleName))
+                .ForMember(dest => dest.StaffName, opt => opt.MapFrom(src => src.HospitalStaff.FullName));
+            CreateMap<User, UserDetailResponse>();
+            CreateMap<CreateUserRequest, User>();
+            CreateMap<UpdateUserRequest, User>();
+
+            // MedicalRecord mappings
+            CreateMap<MedicalRecord, MedicalRecordResponse>()
+                .ForMember(dest => dest.PatientName, opt => opt.MapFrom(src => src.Patient.FullName))
+                .ForMember(dest => dest.DoctorName, opt => opt.MapFrom(src => src.HospitalStaff.FullName));
+            CreateMap<MedicalRecord, MedicalRecordDetailResponse>();
+            CreateMap<CreateMedicalRecordRequest, MedicalRecord>();
+            CreateMap<UpdateMedicalRecordRequest, MedicalRecord>();
+
+            // Service mappings
+            CreateMap<Service, ServiceResponse>();
+            CreateMap<CreateServiceRequest, Service>();
+            CreateMap<UpdateServiceRequest, Service>();
+
+            // ImagingRequest mappings
+            CreateMap<ImagingRequest, ImagingRequestResponse>();
+            CreateMap<ImagingRequest, ImagingRequestDetailResponse>();
+            CreateMap<CreateImagingRequestRequest, ImagingRequest>();
+            CreateMap<UpdateImagingRequestRequest, ImagingRequest>();
+
+            // DiagnosisResult mappings
+            CreateMap<DiagnosisResult, DiagnosisResultResponse>();
+            CreateMap<DiagnosisResult, DiagnosisResultDetailResponse>();
+            CreateMap<CreateDiagnosisResultRequest, DiagnosisResult>();
+            CreateMap<UpdateDiagnosisResultRequest, DiagnosisResult>();
+
+            // DicomImage mappings
+            CreateMap<DicomImage, DicomImageResponse>();
+            CreateMap<DicomImage, DicomImageDetailResponse>();
+            CreateMap<CreateDicomImageRequest, DicomImage>();
+            CreateMap<UpdateDicomImageRequest, DicomImage>();
         }
     }
 }

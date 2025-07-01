@@ -1,42 +1,36 @@
 {
   "format": 1,
   "restore": {
-    "D:\\TichPhan\\data\\AIDIMS.BACKEND\\AIDIMS.APp\\AIDIMS.App.csproj": {}
+    "D:\\TichPhan\\AIDIMS\\BE\\Project-Software-Technical\\aidims.app\\AIDIMS.App.csproj": {}
   },
   "projects": {
-    "D:\\TichPhan\\data\\AIDIMS.BACKEND\\AIDIMS.APp\\AIDIMS.App.csproj": {
+    "D:\\TichPhan\\AIDIMS\\BE\\Project-Software-Technical\\aidims.app\\AIDIMS.App.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\TichPhan\\data\\AIDIMS.BACKEND\\AIDIMS.APp\\AIDIMS.App.csproj",
+        "projectUniqueName": "D:\\TichPhan\\AIDIMS\\BE\\Project-Software-Technical\\aidims.app\\AIDIMS.App.csproj",
         "projectName": "AIDIMS.App",
-        "projectPath": "D:\\TichPhan\\data\\AIDIMS.BACKEND\\AIDIMS.APp\\AIDIMS.App.csproj",
+        "projectPath": "D:\\TichPhan\\AIDIMS\\BE\\Project-Software-Technical\\aidims.app\\AIDIMS.App.csproj",
         "packagesPath": "C:\\Users\\thanh\\.nuget\\packages\\",
-        "outputPath": "D:\\TichPhan\\data\\AIDIMS.BACKEND\\AIDIMS.APp\\obj\\",
+        "outputPath": "D:\\TichPhan\\AIDIMS\\BE\\Project-Software-Technical\\aidims.app\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\thanh\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\thanh\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "D:\\TichPhan\\data\\AIDIMS.BACKEND\\AIDIMS.Repositories\\AIDIMS.Repositories.csproj": {
-                "projectPath": "D:\\TichPhan\\data\\AIDIMS.BACKEND\\AIDIMS.Repositories\\AIDIMS.Repositories.csproj"
+              "D:\\TichPhan\\AIDIMS\\BE\\Project-Software-Technical\\AIDIMS.Repositories\\AIDIMS.Repositories.csproj": {
+                "projectPath": "D:\\TichPhan\\AIDIMS\\BE\\Project-Software-Technical\\AIDIMS.Repositories\\AIDIMS.Repositories.csproj"
               },
-              "D:\\TichPhan\\data\\AIDIMS.BACKEND\\AIDIMS.Services\\AIDIMS.Services.csproj": {
-                "projectPath": "D:\\TichPhan\\data\\AIDIMS.BACKEND\\AIDIMS.Services\\AIDIMS.Services.csproj"
+              "D:\\TichPhan\\AIDIMS\\BE\\Project-Software-Technical\\AIDIMS.Services\\AIDIMS.Services.csproj": {
+                "projectPath": "D:\\TichPhan\\AIDIMS\\BE\\Project-Software-Technical\\AIDIMS.Services\\AIDIMS.Services.csproj"
               }
             }
           }
@@ -57,6 +51,10 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[14.0.0, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[9.0.5, )"
@@ -64,6 +62,10 @@
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.5, )"
+            },
+            "Microsoft.Extensions.DependencyInjection": {
               "target": "Package",
               "version": "[9.0.5, )"
             },
@@ -95,32 +97,26 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.301/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\TichPhan\\data\\AIDIMS.BACKEND\\AIDIMS.Core\\AIDIMS.Core.csproj": {
+    "D:\\TichPhan\\AIDIMS\\BE\\Project-Software-Technical\\AIDIMS.Core\\AIDIMS.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\TichPhan\\data\\AIDIMS.BACKEND\\AIDIMS.Core\\AIDIMS.Core.csproj",
+        "projectUniqueName": "D:\\TichPhan\\AIDIMS\\BE\\Project-Software-Technical\\AIDIMS.Core\\AIDIMS.Core.csproj",
         "projectName": "AIDIMS.Core",
-        "projectPath": "D:\\TichPhan\\data\\AIDIMS.BACKEND\\AIDIMS.Core\\AIDIMS.Core.csproj",
+        "projectPath": "D:\\TichPhan\\AIDIMS\\BE\\Project-Software-Technical\\AIDIMS.Core\\AIDIMS.Core.csproj",
         "packagesPath": "C:\\Users\\thanh\\.nuget\\packages\\",
-        "outputPath": "D:\\TichPhan\\data\\AIDIMS.BACKEND\\AIDIMS.Core\\obj\\",
+        "outputPath": "D:\\TichPhan\\AIDIMS\\BE\\Project-Software-Technical\\AIDIMS.Core\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\thanh\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\thanh\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -145,6 +141,10 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[14.0.0, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[9.0.5, )"
@@ -198,40 +198,34 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.301/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\TichPhan\\data\\AIDIMS.BACKEND\\AIDIMS.Repositories\\AIDIMS.Repositories.csproj": {
+    "D:\\TichPhan\\AIDIMS\\BE\\Project-Software-Technical\\AIDIMS.Repositories\\AIDIMS.Repositories.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\TichPhan\\data\\AIDIMS.BACKEND\\AIDIMS.Repositories\\AIDIMS.Repositories.csproj",
+        "projectUniqueName": "D:\\TichPhan\\AIDIMS\\BE\\Project-Software-Technical\\AIDIMS.Repositories\\AIDIMS.Repositories.csproj",
         "projectName": "AIDIMS.Repositories",
-        "projectPath": "D:\\TichPhan\\data\\AIDIMS.BACKEND\\AIDIMS.Repositories\\AIDIMS.Repositories.csproj",
+        "projectPath": "D:\\TichPhan\\AIDIMS\\BE\\Project-Software-Technical\\AIDIMS.Repositories\\AIDIMS.Repositories.csproj",
         "packagesPath": "C:\\Users\\thanh\\.nuget\\packages\\",
-        "outputPath": "D:\\TichPhan\\data\\AIDIMS.BACKEND\\AIDIMS.Repositories\\obj\\",
+        "outputPath": "D:\\TichPhan\\AIDIMS\\BE\\Project-Software-Technical\\AIDIMS.Repositories\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\thanh\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\thanh\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "D:\\TichPhan\\data\\AIDIMS.BACKEND\\AIDIMS.Core\\AIDIMS.Core.csproj": {
-                "projectPath": "D:\\TichPhan\\data\\AIDIMS.BACKEND\\AIDIMS.Core\\AIDIMS.Core.csproj"
+              "D:\\TichPhan\\AIDIMS\\BE\\Project-Software-Technical\\AIDIMS.Core\\AIDIMS.Core.csproj": {
+                "projectPath": "D:\\TichPhan\\AIDIMS\\BE\\Project-Software-Technical\\AIDIMS.Core\\AIDIMS.Core.csproj"
               }
             }
           }
@@ -277,43 +271,37 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.301/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\TichPhan\\data\\AIDIMS.BACKEND\\AIDIMS.Services\\AIDIMS.Services.csproj": {
+    "D:\\TichPhan\\AIDIMS\\BE\\Project-Software-Technical\\AIDIMS.Services\\AIDIMS.Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\TichPhan\\data\\AIDIMS.BACKEND\\AIDIMS.Services\\AIDIMS.Services.csproj",
+        "projectUniqueName": "D:\\TichPhan\\AIDIMS\\BE\\Project-Software-Technical\\AIDIMS.Services\\AIDIMS.Services.csproj",
         "projectName": "AIDIMS.Services",
-        "projectPath": "D:\\TichPhan\\data\\AIDIMS.BACKEND\\AIDIMS.Services\\AIDIMS.Services.csproj",
+        "projectPath": "D:\\TichPhan\\AIDIMS\\BE\\Project-Software-Technical\\AIDIMS.Services\\AIDIMS.Services.csproj",
         "packagesPath": "C:\\Users\\thanh\\.nuget\\packages\\",
-        "outputPath": "D:\\TichPhan\\data\\AIDIMS.BACKEND\\AIDIMS.Services\\obj\\",
+        "outputPath": "D:\\TichPhan\\AIDIMS\\BE\\Project-Software-Technical\\AIDIMS.Services\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\thanh\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\thanh\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "D:\\TichPhan\\data\\AIDIMS.BACKEND\\AIDIMS.Core\\AIDIMS.Core.csproj": {
-                "projectPath": "D:\\TichPhan\\data\\AIDIMS.BACKEND\\AIDIMS.Core\\AIDIMS.Core.csproj"
+              "D:\\TichPhan\\AIDIMS\\BE\\Project-Software-Technical\\AIDIMS.Core\\AIDIMS.Core.csproj": {
+                "projectPath": "D:\\TichPhan\\AIDIMS\\BE\\Project-Software-Technical\\AIDIMS.Core\\AIDIMS.Core.csproj"
               },
-              "D:\\TichPhan\\data\\AIDIMS.BACKEND\\AIDIMS.Repositories\\AIDIMS.Repositories.csproj": {
-                "projectPath": "D:\\TichPhan\\data\\AIDIMS.BACKEND\\AIDIMS.Repositories\\AIDIMS.Repositories.csproj"
+              "D:\\TichPhan\\AIDIMS\\BE\\Project-Software-Technical\\AIDIMS.Repositories\\AIDIMS.Repositories.csproj": {
+                "projectPath": "D:\\TichPhan\\AIDIMS\\BE\\Project-Software-Technical\\AIDIMS.Repositories\\AIDIMS.Repositories.csproj"
               }
             }
           }
@@ -333,6 +321,12 @@
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[14.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -349,7 +343,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.301/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

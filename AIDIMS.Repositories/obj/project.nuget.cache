@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "wEP3znrKHSI=",
+  "dgSpecHash": "w56OpWs7jmE=",
   "success": true,
-  "projectFilePath": "D:\\TichPhan\\data\\AIDIMS.BACKEND\\AIDIMS.Repositories\\AIDIMS.Repositories.csproj",
+  "projectFilePath": "D:\\TichPhan\\AIDIMS\\BE\\Project-Software-Technical\\AIDIMS.Repositories\\AIDIMS.Repositories.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\thanh\\.nuget\\packages\\automapper\\14.0.0\\automapper.14.0.0.nupkg.sha512",
     "C:\\Users\\thanh\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\thanh\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
     "C:\\Users\\thanh\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",

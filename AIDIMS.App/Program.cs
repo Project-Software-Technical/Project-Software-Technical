@@ -66,11 +66,25 @@ builder.Services.AddDbContext<AIDIMSDbContext>(options =>
 
 // Đăng ký Repositories
 builder.Services.AddScoped<IRoleRepository, RoleRepository>();
-// Thêm các repository khác ở đây
+builder.Services.AddScoped<IPatientRepository, PatientRepository>();
+builder.Services.AddScoped<IDiagnosisResultRepository, DiagnosisResultRepository>();
+builder.Services.AddScoped<IDicomImageRepository, DicomImageRepository>();
+builder.Services.AddScoped<IHospitalStaffRepository, HospitalStaffRepository>();
+builder.Services.AddScoped<IImagingRequestRepository, ImagingRequestRepository>();
+builder.Services.AddScoped<IMedicalRecordRepository, MedicalRecordRepository>();
+builder.Services.AddScoped<IServiceRepository, ServiceRepository>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 // Đăng ký Services
 builder.Services.AddScoped<IRoleService, RoleService>();
-// Thêm các service khác ở đây
+builder.Services.AddScoped<IPatientService, PatientService>();
+builder.Services.AddScoped<IHospitalStaffService, HospitalStaffService>();
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IMedicalRecordService, MedicalRecordService>();
+builder.Services.AddScoped<IServiceEntityService, ServiceEntityService>();
+builder.Services.AddScoped<IImagingRequestService, ImagingRequestService>();
+builder.Services.AddScoped<IDiagnosisResultService, DiagnosisResultService>();
+builder.Services.AddScoped<IDicomImageService, DicomImageService>();
 
 var app = builder.Build();
 
@@ -112,10 +126,10 @@ if (app.Environment.IsDevelopment())
     }
 }
 
-app.UseHttpsRedirection();
-
-// Sử dụng CORS
+// Sử dụng CORS (đặt trước khi redirect để preflight không bị chặn)
 app.UseCors("AllowAll");
+
+app.UseHttpsRedirection();
 
 app.UseAuthorization();
 

@@ -21,7 +21,7 @@ namespace AIDIMS.Core.Data
             // Nếu không tìm thấy chuỗi kết nối trong file appsettings.json, sử dụng chuỗi kết nối mặc định
             if (string.IsNullOrEmpty(connectionString))
             {
-                connectionString = "Host=localhost;Port=5433;Database=aidims_db;Username=postgres;Password=1234";
+                connectionString = "Host=localhost;Port=5432;Database=aidims_db;Username=postgres;Password=1234";
             }
 
             optionsBuilder.UseNpgsql(connectionString);

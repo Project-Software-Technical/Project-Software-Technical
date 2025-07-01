@@ -63,14 +63,12 @@ namespace AIDIMS.Repositories.Impl
                 throw new KeyNotFoundException($"Entity with id {id} not found.");
             }
 
-            // Assuming T has a method to update its properties from another instance
-            // This could be done using AutoMapper or manually setting properties
+            // Cập nhật giá trị từ entity mới vào entity đang được theo dõi
             _dbContext.Entry(existingEntity).CurrentValues.SetValues(entity);
-            {
-                _dbSet.Update(entity);
-                await SaveChangesAsync();
-                return entity;
-            }
+
+            // Không đính kèm thêm entity mới để tránh lỗi duplicate tracking
+            await SaveChangesAsync();
+            return existingEntity;
         }
 
         public virtual async Task<int> SaveChangesAsync()
