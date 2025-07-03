@@ -10,6 +10,8 @@ using System.Net;
 using System.Runtime.InteropServices;
 using AutoMapper;
 using AIDIMS.App.Mapping;
+using Microsoft.Extensions.FileProviders;
+using Microsoft.AspNetCore.StaticFiles;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,7 +21,6 @@ builder.WebHost.ConfigureKestrel(options =>
     options.Listen(IPAddress.Any, 5000); // HTTP
     options.Listen(IPAddress.Any, 5001, listenOptions =>
     {
-        // Tạm thời tắt HTTPS để dễ truy cập, trong môi trường production nên bật lại và cấu hình chứng chỉ
         listenOptions.UseHttps();
     });
 });
@@ -74,6 +75,9 @@ builder.Services.AddScoped<IImagingRequestRepository, ImagingRequestRepository>(
 builder.Services.AddScoped<IMedicalRecordRepository, MedicalRecordRepository>();
 builder.Services.AddScoped<IServiceRepository, ServiceRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IAppointmentRepository, AppointmentRepository>();
+builder.Services.AddScoped<IDepartmentRepository, DepartmentRepository>();
+builder.Services.AddScoped<IPatientAssignmentRepository, PatientAssignmentRepository>();
 
 // Đăng ký Services
 builder.Services.AddScoped<IRoleService, RoleService>();
@@ -85,6 +89,10 @@ builder.Services.AddScoped<IServiceEntityService, ServiceEntityService>();
 builder.Services.AddScoped<IImagingRequestService, ImagingRequestService>();
 builder.Services.AddScoped<IDiagnosisResultService, DiagnosisResultService>();
 builder.Services.AddScoped<IDicomImageService, DicomImageService>();
+builder.Services.AddScoped<IAppointmentService, AppointmentService>();
+builder.Services.AddScoped<IDepartmentService, DepartmentService>();
+builder.Services.AddScoped<IPatientAssignmentService, PatientAssignmentService>();
+builder.Services.AddScoped<IDoctorService, DoctorService>();
 
 var app = builder.Build();
 
@@ -130,6 +138,17 @@ if (app.Environment.IsDevelopment())
 app.UseCors("AllowAll");
 
 app.UseHttpsRedirection();
+
+// Cấu hình StaticFiles để phục vụ cả file DICOM (.dcm)
+var staticProvider = new FileExtensionContentTypeProvider();
+staticProvider.Mappings[".dcm"] = "application/dicom";
+app.UseStaticFiles(new StaticFileOptions
+{
+    ServeUnknownFileTypes = true,
+    DefaultContentType = "application/octet-stream",
+    ContentTypeProvider = staticProvider,
+    FileProvider = new PhysicalFileProvider(Path.Combine(app.Environment.ContentRootPath, "wwwroot"))
+});
 
 app.UseAuthorization();
 

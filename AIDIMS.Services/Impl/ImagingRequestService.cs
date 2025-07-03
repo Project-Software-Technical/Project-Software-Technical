@@ -18,6 +18,7 @@ namespace AIDIMS.Services.Impl
         private readonly IMedicalRecordRepository _medicalRecordRepository;
         private readonly IServiceRepository _serviceRepository;
         private readonly IPatientRepository _patientRepository;
+        private readonly IHospitalStaffRepository _hospitalStaffRepository;
         private readonly IMapper _mapper;
 
         public ImagingRequestService(
@@ -25,12 +26,14 @@ namespace AIDIMS.Services.Impl
             IMedicalRecordRepository medicalRecordRepository,
             IServiceRepository serviceRepository,
             IPatientRepository patientRepository,
+            IHospitalStaffRepository hospitalStaffRepository,
             IMapper mapper)
         {
             _repository = repository;
             _medicalRecordRepository = medicalRecordRepository;
             _serviceRepository = serviceRepository;
             _patientRepository = patientRepository;
+            _hospitalStaffRepository = hospitalStaffRepository;
             _mapper = mapper;
         }
 
@@ -69,6 +72,16 @@ namespace AIDIMS.Services.Impl
                 if (patient != null)
                 {
                     response.PatientName = patient.FullName;
+                }
+            }
+
+            // Lấy tên kỹ thuật viên
+            if (result.TechnicianID.HasValue)
+            {
+                var tech = await _hospitalStaffRepository.GetByIdAsync(result.TechnicianID.Value);
+                if (tech != null)
+                {
+                    response.TechnicianName = tech.FullName;
                 }
             }
 
@@ -136,6 +149,16 @@ namespace AIDIMS.Services.Impl
                 if (patient != null)
                 {
                     response.PatientName = patient.FullName;
+                }
+            }
+
+            // Lấy tên kỹ thuật viên
+            if (entity.TechnicianID.HasValue)
+            {
+                var tech = await _hospitalStaffRepository.GetByIdAsync(entity.TechnicianID.Value);
+                if (tech != null)
+                {
+                    response.TechnicianName = tech.FullName;
                 }
             }
 
@@ -264,6 +287,55 @@ namespace AIDIMS.Services.Impl
             };
         }
 
+        public async Task<PagedResponse<ImagingRequestResponse>> GetImagingRequestsByTechnicianAsync(int technicianId, int pageNumber, int pageSize)
+        {
+            var allRequests = await _repository.GetAllAsync(1, int.MaxValue);
+            var filteredRequests = allRequests.Where(r => r.TechnicianID == technicianId).ToList();
+
+            var pagedRequests = filteredRequests
+                .Skip((pageNumber - 1) * pageSize)
+                .Take(pageSize)
+                .ToList();
+
+            var responses = _mapper.Map<IEnumerable<ImagingRequestResponse>>(pagedRequests).ToList();
+
+            foreach (var response in responses)
+            {
+                var service = await _serviceRepository.GetByIdAsync(response.ServiceID);
+                if (service != null)
+                {
+                    response.ServiceName = service.ServiceName;
+                }
+
+                if (response.TechnicianID.HasValue)
+                {
+                    var tech = await _hospitalStaffRepository.GetByIdAsync(response.TechnicianID.Value);
+                    if (tech != null)
+                    {
+                        response.TechnicianName = tech.FullName;
+                    }
+                }
+
+                var medicalRecord = await _medicalRecordRepository.GetByIdAsync(response.RecordID);
+                if (medicalRecord != null)
+                {
+                    var patient = await _patientRepository.GetByIdAsync(medicalRecord.PatientID);
+                    if (patient != null)
+                    {
+                        response.PatientName = patient.FullName;
+                    }
+                }
+            }
+
+            return new PagedResponse<ImagingRequestResponse>
+            {
+                Items = responses,
+                TotalCount = filteredRequests.Count(),
+                PageNumber = pageNumber,
+                PageSize = pageSize
+            };
+        }
+
         public async Task<ImagingRequestResponse> UpdateAsync(int id, UpdateImagingRequestRequest updateRequest)
         {
             // Lấy thông tin hiện tại của imaging request
@@ -289,6 +361,16 @@ namespace AIDIMS.Services.Impl
             if (service != null)
             {
                 response.ServiceName = service.ServiceName;
+            }
+
+            // Lấy tên kỹ thuật viên
+            if (result.TechnicianID.HasValue)
+            {
+                var tech = await _hospitalStaffRepository.GetByIdAsync(result.TechnicianID.Value);
+                if (tech != null)
+                {
+                    response.TechnicianName = tech.FullName;
+                }
             }
 
             // Lấy thông tin bệnh nhân qua hồ sơ bệnh án

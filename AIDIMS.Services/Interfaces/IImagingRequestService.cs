@@ -32,5 +32,10 @@ namespace AIDIMS.Services.Interfaces
         /// <param name="pageSize">Kích thước trang</param>
         /// <returns>Danh sách các yêu cầu chụp theo trạng thái</returns>
         Task<PagedResponse<ImagingRequestResponse>> GetImagingRequestsByStatusAsync(string status, int pageNumber, int pageSize);
+
+        /// <summary>
+        /// Lấy danh sách yêu cầu chụp theo kỹ thuật viên
+        /// </summary>
+        Task<PagedResponse<ImagingRequestResponse>> GetImagingRequestsByTechnicianAsync(int technicianId, int pageNumber, int pageSize);
     }
 }

@@ -10,7 +10,7 @@ namespace AIDIMS.Core.DTOs.Response
     {
         public int RecordID { get; set; }
         public int PatientID { get; set; }
-        public int StaffID { get; set; }
+        public int DoctorID { get; set; }
         public string Symptoms { get; set; }
         public DateTime ExaminationDate { get; set; }
         public string Diagnosis { get; set; }

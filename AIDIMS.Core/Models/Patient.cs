@@ -31,5 +31,7 @@ namespace AIDIMS.Core.Models
 
         // Navigation properties
         public virtual ICollection<MedicalRecord> MedicalRecords { get; set; }
+        public virtual ICollection<Appointment> Appointments { get; set; }
+        public virtual ICollection<PatientAssignment> PatientAssignments { get; set; }
     }
 }

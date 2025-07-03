@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\TichPhan\\AIDIMS\\BE\\Project-Software-Technical\\aidims.app\\AIDIMS.App.csproj": {}
+    "D:\\TichPhan\\AIDIMS\\BE\\BE\\AIDIMS.App\\AIDIMS.App.csproj": {}
   },
   "projects": {
-    "D:\\TichPhan\\AIDIMS\\BE\\Project-Software-Technical\\aidims.app\\AIDIMS.App.csproj": {
+    "D:\\TichPhan\\AIDIMS\\BE\\BE\\AIDIMS.App\\AIDIMS.App.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\TichPhan\\AIDIMS\\BE\\Project-Software-Technical\\aidims.app\\AIDIMS.App.csproj",
+        "projectUniqueName": "D:\\TichPhan\\AIDIMS\\BE\\BE\\AIDIMS.App\\AIDIMS.App.csproj",
         "projectName": "AIDIMS.App",
-        "projectPath": "D:\\TichPhan\\AIDIMS\\BE\\Project-Software-Technical\\aidims.app\\AIDIMS.App.csproj",
+        "projectPath": "D:\\TichPhan\\AIDIMS\\BE\\BE\\AIDIMS.App\\AIDIMS.App.csproj",
         "packagesPath": "C:\\Users\\thanh\\.nuget\\packages\\",
-        "outputPath": "D:\\TichPhan\\AIDIMS\\BE\\Project-Software-Technical\\aidims.app\\obj\\",
+        "outputPath": "D:\\TichPhan\\AIDIMS\\BE\\BE\\AIDIMS.App\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\thanh\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -26,11 +26,11 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "D:\\TichPhan\\AIDIMS\\BE\\Project-Software-Technical\\AIDIMS.Repositories\\AIDIMS.Repositories.csproj": {
-                "projectPath": "D:\\TichPhan\\AIDIMS\\BE\\Project-Software-Technical\\AIDIMS.Repositories\\AIDIMS.Repositories.csproj"
+              "D:\\TichPhan\\AIDIMS\\BE\\BE\\AIDIMS.Repositories\\AIDIMS.Repositories.csproj": {
+                "projectPath": "D:\\TichPhan\\AIDIMS\\BE\\BE\\AIDIMS.Repositories\\AIDIMS.Repositories.csproj"
               },
-              "D:\\TichPhan\\AIDIMS\\BE\\Project-Software-Technical\\AIDIMS.Services\\AIDIMS.Services.csproj": {
-                "projectPath": "D:\\TichPhan\\AIDIMS\\BE\\Project-Software-Technical\\AIDIMS.Services\\AIDIMS.Services.csproj"
+              "D:\\TichPhan\\AIDIMS\\BE\\BE\\AIDIMS.Services\\AIDIMS.Services.csproj": {
+                "projectPath": "D:\\TichPhan\\AIDIMS\\BE\\BE\\AIDIMS.Services\\AIDIMS.Services.csproj"
               }
             }
           }
@@ -101,14 +101,14 @@
         }
       }
     },
-    "D:\\TichPhan\\AIDIMS\\BE\\Project-Software-Technical\\AIDIMS.Core\\AIDIMS.Core.csproj": {
+    "D:\\TichPhan\\AIDIMS\\BE\\BE\\AIDIMS.Core\\AIDIMS.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\TichPhan\\AIDIMS\\BE\\Project-Software-Technical\\AIDIMS.Core\\AIDIMS.Core.csproj",
+        "projectUniqueName": "D:\\TichPhan\\AIDIMS\\BE\\BE\\AIDIMS.Core\\AIDIMS.Core.csproj",
         "projectName": "AIDIMS.Core",
-        "projectPath": "D:\\TichPhan\\AIDIMS\\BE\\Project-Software-Technical\\AIDIMS.Core\\AIDIMS.Core.csproj",
+        "projectPath": "D:\\TichPhan\\AIDIMS\\BE\\BE\\AIDIMS.Core\\AIDIMS.Core.csproj",
         "packagesPath": "C:\\Users\\thanh\\.nuget\\packages\\",
-        "outputPath": "D:\\TichPhan\\AIDIMS\\BE\\Project-Software-Technical\\AIDIMS.Core\\obj\\",
+        "outputPath": "D:\\TichPhan\\AIDIMS\\BE\\BE\\AIDIMS.Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\thanh\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -202,14 +202,14 @@
         }
       }
     },
-    "D:\\TichPhan\\AIDIMS\\BE\\Project-Software-Technical\\AIDIMS.Repositories\\AIDIMS.Repositories.csproj": {
+    "D:\\TichPhan\\AIDIMS\\BE\\BE\\AIDIMS.Repositories\\AIDIMS.Repositories.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\TichPhan\\AIDIMS\\BE\\Project-Software-Technical\\AIDIMS.Repositories\\AIDIMS.Repositories.csproj",
+        "projectUniqueName": "D:\\TichPhan\\AIDIMS\\BE\\BE\\AIDIMS.Repositories\\AIDIMS.Repositories.csproj",
         "projectName": "AIDIMS.Repositories",
-        "projectPath": "D:\\TichPhan\\AIDIMS\\BE\\Project-Software-Technical\\AIDIMS.Repositories\\AIDIMS.Repositories.csproj",
+        "projectPath": "D:\\TichPhan\\AIDIMS\\BE\\BE\\AIDIMS.Repositories\\AIDIMS.Repositories.csproj",
         "packagesPath": "C:\\Users\\thanh\\.nuget\\packages\\",
-        "outputPath": "D:\\TichPhan\\AIDIMS\\BE\\Project-Software-Technical\\AIDIMS.Repositories\\obj\\",
+        "outputPath": "D:\\TichPhan\\AIDIMS\\BE\\BE\\AIDIMS.Repositories\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\thanh\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -224,8 +224,8 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "D:\\TichPhan\\AIDIMS\\BE\\Project-Software-Technical\\AIDIMS.Core\\AIDIMS.Core.csproj": {
-                "projectPath": "D:\\TichPhan\\AIDIMS\\BE\\Project-Software-Technical\\AIDIMS.Core\\AIDIMS.Core.csproj"
+              "D:\\TichPhan\\AIDIMS\\BE\\BE\\AIDIMS.Core\\AIDIMS.Core.csproj": {
+                "projectPath": "D:\\TichPhan\\AIDIMS\\BE\\BE\\AIDIMS.Core\\AIDIMS.Core.csproj"
               }
             }
           }
@@ -275,14 +275,14 @@
         }
       }
     },
-    "D:\\TichPhan\\AIDIMS\\BE\\Project-Software-Technical\\AIDIMS.Services\\AIDIMS.Services.csproj": {
+    "D:\\TichPhan\\AIDIMS\\BE\\BE\\AIDIMS.Services\\AIDIMS.Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\TichPhan\\AIDIMS\\BE\\Project-Software-Technical\\AIDIMS.Services\\AIDIMS.Services.csproj",
+        "projectUniqueName": "D:\\TichPhan\\AIDIMS\\BE\\BE\\AIDIMS.Services\\AIDIMS.Services.csproj",
         "projectName": "AIDIMS.Services",
-        "projectPath": "D:\\TichPhan\\AIDIMS\\BE\\Project-Software-Technical\\AIDIMS.Services\\AIDIMS.Services.csproj",
+        "projectPath": "D:\\TichPhan\\AIDIMS\\BE\\BE\\AIDIMS.Services\\AIDIMS.Services.csproj",
         "packagesPath": "C:\\Users\\thanh\\.nuget\\packages\\",
-        "outputPath": "D:\\TichPhan\\AIDIMS\\BE\\Project-Software-Technical\\AIDIMS.Services\\obj\\",
+        "outputPath": "D:\\TichPhan\\AIDIMS\\BE\\BE\\AIDIMS.Services\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\thanh\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -297,11 +297,11 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "D:\\TichPhan\\AIDIMS\\BE\\Project-Software-Technical\\AIDIMS.Core\\AIDIMS.Core.csproj": {
-                "projectPath": "D:\\TichPhan\\AIDIMS\\BE\\Project-Software-Technical\\AIDIMS.Core\\AIDIMS.Core.csproj"
+              "D:\\TichPhan\\AIDIMS\\BE\\BE\\AIDIMS.Core\\AIDIMS.Core.csproj": {
+                "projectPath": "D:\\TichPhan\\AIDIMS\\BE\\BE\\AIDIMS.Core\\AIDIMS.Core.csproj"
               },
-              "D:\\TichPhan\\AIDIMS\\BE\\Project-Software-Technical\\AIDIMS.Repositories\\AIDIMS.Repositories.csproj": {
-                "projectPath": "D:\\TichPhan\\AIDIMS\\BE\\Project-Software-Technical\\AIDIMS.Repositories\\AIDIMS.Repositories.csproj"
+              "D:\\TichPhan\\AIDIMS\\BE\\BE\\AIDIMS.Repositories\\AIDIMS.Repositories.csproj": {
+                "projectPath": "D:\\TichPhan\\AIDIMS\\BE\\BE\\AIDIMS.Repositories\\AIDIMS.Repositories.csproj"
               }
             }
           }

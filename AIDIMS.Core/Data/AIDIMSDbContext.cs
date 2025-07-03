@@ -18,6 +18,9 @@ namespace AIDIMS.Core.Data
         public DbSet<ImagingRequest> ImagingRequests { get; set; }
         public DbSet<DiagnosisResult> DiagnosisResults { get; set; }
         public DbSet<DicomImage> DicomImages { get; set; }
+        public DbSet<Department> Departments { get; set; }
+        public DbSet<Appointment> Appointments { get; set; }
+        public DbSet<PatientAssignment> PatientAssignments { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -44,11 +47,6 @@ namespace AIDIMS.Core.Data
                 .WithMany(p => p.MedicalRecords)
                 .HasForeignKey(m => m.PatientID);
 
-            modelBuilder.Entity<MedicalRecord>()
-                .HasOne(m => m.HospitalStaff)
-                .WithMany(h => h.MedicalRecords)
-                .HasForeignKey(m => m.StaffID);
-
             modelBuilder.Entity<ImagingRequest>()
                 .HasOne(i => i.MedicalRecord)
                 .WithMany(m => m.ImagingRequests)
@@ -73,6 +71,59 @@ namespace AIDIMS.Core.Data
                 .HasOne(d => d.Technician)
                 .WithMany(h => h.DicomImages)
                 .HasForeignKey(d => d.TechnicianID);
+
+            // Appointment - Patient (many-to-one)
+            modelBuilder.Entity<Appointment>()
+                .HasOne(a => a.Patient)
+                .WithMany(p => p.Appointments)
+                .HasForeignKey(a => a.PatientID);
+
+            // Department unique Code
+            modelBuilder.Entity<Department>()
+                .HasIndex(d => d.Code).IsUnique();
+
+            // MedicalRecord relationships
+            modelBuilder.Entity<MedicalRecord>()
+                .HasOne(m => m.Receptionist)
+                .WithMany()
+                .HasForeignKey(m => m.CreatedBy);
+
+            modelBuilder.Entity<MedicalRecord>()
+                .HasOne(m => m.Doctor)
+                .WithMany()
+                .HasForeignKey(m => m.DoctorID);
+
+            modelBuilder.Entity<MedicalRecord>()
+                .HasOne(m => m.Department)
+                .WithMany()
+                .HasForeignKey(m => m.DepartmentID);
+
+            // PatientAssignment relationships
+            modelBuilder.Entity<PatientAssignment>()
+                .HasOne(pa => pa.Patient)
+                .WithMany(p => p.PatientAssignments)
+                .HasForeignKey(pa => pa.PatientID);
+
+            modelBuilder.Entity<PatientAssignment>()
+                .HasOne(pa => pa.Doctor)
+                .WithMany(d => d.PatientAssignments)
+                .HasForeignKey(pa => pa.DoctorID);
+
+            modelBuilder.Entity<PatientAssignment>()
+                .HasOne(pa => pa.Appointment)
+                .WithOne(a => a.PatientAssignment)
+                .HasForeignKey<PatientAssignment>(pa => pa.AppointmentID);
+
+            modelBuilder.Entity<PatientAssignment>()
+                .HasOne(pa => pa.MedicalRecord)
+                .WithOne(m => m.PatientAssignment)
+                .HasForeignKey<PatientAssignment>(pa => pa.MedicalRecordID);
+
+            // Appointment - MedicalRecord (one-to-one)
+            modelBuilder.Entity<MedicalRecord>()
+                .HasOne(m => m.Appointment)
+                .WithOne(a => a.MedicalRecord)
+                .HasForeignKey<MedicalRecord>(m => m.AppointmentID);
         }
     }
 }

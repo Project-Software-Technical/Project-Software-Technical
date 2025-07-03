@@ -59,6 +59,13 @@ namespace AIDIMS.App.Controllers.API
             return Ok(result);
         }
 
+        [HttpGet("technician/{techId}")]
+        public async Task<IActionResult> GetByTechnician(int techId, int pageNumber = 1, int pageSize = 10)
+        {
+            var result = await _imagingRequestService.GetImagingRequestsByTechnicianAsync(techId, pageNumber, pageSize);
+            return Ok(result);
+        }
+
         [HttpPost]
         public async Task<IActionResult> Create(CreateImagingRequestRequest request)
         {

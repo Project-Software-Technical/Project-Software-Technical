@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using AIDIMS.Core.Models.Enums;
 
 namespace AIDIMS.Core.Models
 {
@@ -14,7 +15,13 @@ namespace AIDIMS.Core.Models
         public int PatientID { get; set; }
 
         [Required]
-        public int StaffID { get; set; }
+        public int CreatedBy { get; set; }
+
+        public int? DoctorID { get; set; }
+
+        public int AppointmentID { get; set; }
+
+        public int? DepartmentID { get; set; }
 
         [StringLength(500)]
         public string Symptoms { get; set; }
@@ -22,26 +29,45 @@ namespace AIDIMS.Core.Models
         public DateTime ExaminationDate { get; set; }
 
         [StringLength(500)]
-        public string Diagnosis { get; set; }
+        public string InitialDiagnosis { get; set; }
 
         [StringLength(500)]
-        public string Result { get; set; }
+        public string FinalDiagnosis { get; set; }
+
+        [StringLength(500)]
+        public string Treatment { get; set; }
+
+        [StringLength(500)]
+        public string Prescription { get; set; }
 
         [StringLength(20)]
-        public string Status { get; set; }
+        public string Priority { get; set; } = "Normal";
 
-        public DateTime CreatedDate { get; set; }
+        public MedicalRecordStatus Status { get; set; } = MedicalRecordStatus.New;
 
-        // Foreign keys
+        public DateTime CreatedDate { get; set; } = DateTime.UtcNow;
+
+        public DateTime? UpdatedAt { get; set; }
+
+        // Navigation
         [ForeignKey("PatientID")]
         public virtual Patient Patient { get; set; }
 
-        [ForeignKey("StaffID")]
-        public virtual HospitalStaff HospitalStaff { get; set; }
+        [ForeignKey("CreatedBy")]
+        public virtual HospitalStaff Receptionist { get; set; }
 
-        // Navigation properties
+        [ForeignKey("DoctorID")]
+        public virtual HospitalStaff Doctor { get; set; }
+
+        [ForeignKey("DepartmentID")]
+        public virtual Department Department { get; set; }
+
+        [ForeignKey("AppointmentID")]
+        public virtual Appointment Appointment { get; set; }
+
         public virtual ICollection<ImagingRequest> ImagingRequests { get; set; }
-        public virtual ICollection<DiagnosisResult> DiagnosisResults { get; set; }
         public virtual ICollection<DicomImage> DicomImages { get; set; }
+        public virtual ICollection<DiagnosisResult> DiagnosisResults { get; set; }
+        public virtual PatientAssignment PatientAssignment { get; set; }
     }
 }

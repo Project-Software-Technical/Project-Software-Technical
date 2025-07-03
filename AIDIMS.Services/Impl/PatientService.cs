@@ -30,6 +30,7 @@ namespace AIDIMS.Services.Impl
         public async Task<PatientResponse> CreateAsync(CreatePatientRequest createRequest)
         {
             var patient = _mapper.Map<Patient>(createRequest);
+            patient.BirthDate = DateTime.SpecifyKind(patient.BirthDate, DateTimeKind.Utc);
             patient.CreatedDate = DateTime.UtcNow;
 
             var result = await _repository.AddAsync(patient);
@@ -71,6 +72,7 @@ namespace AIDIMS.Services.Impl
             // Map thông tin từ request vào entity hiện có
             var patientToUpdate = _mapper.Map<Patient>(updateRequest);
             patientToUpdate.PatientID = id;
+            patientToUpdate.BirthDate = DateTime.SpecifyKind(patientToUpdate.BirthDate, DateTimeKind.Utc);
             patientToUpdate.CreatedDate = existingPatient.CreatedDate;
 
             // Cập nhật thông tin

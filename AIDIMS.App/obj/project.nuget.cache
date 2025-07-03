@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "NNyLh0hNikY=",
+  "dgSpecHash": "8q2hMYigM/4=",
   "success": true,
-  "projectFilePath": "D:\\TichPhan\\AIDIMS\\BE\\Project-Software-Technical\\aidims.app\\AIDIMS.App.csproj",
+  "projectFilePath": "D:\\TichPhan\\AIDIMS\\BE\\BE\\AIDIMS.App\\AIDIMS.App.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\thanh\\.nuget\\packages\\automapper\\14.0.0\\automapper.14.0.0.nupkg.sha512",
     "C:\\Users\\thanh\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",

@@ -4,6 +4,9 @@ using AIDIMS.Core.DTOs.Request;
 using AIDIMS.Core.DTOs.Response;
 using AIDIMS.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
+using System.IO;
+using Microsoft.AspNetCore.Hosting;
 
 namespace AIDIMS.App.Controllers.API
 {
@@ -12,10 +15,12 @@ namespace AIDIMS.App.Controllers.API
     public class DicomImageController : ControllerBase
     {
         private readonly IDicomImageService _dicomImageService;
+        private readonly IWebHostEnvironment _env;
 
-        public DicomImageController(IDicomImageService dicomImageService)
+        public DicomImageController(IDicomImageService dicomImageService, IWebHostEnvironment env)
         {
             _dicomImageService = dicomImageService;
+            _env = env;
         }
 
         [HttpGet]
@@ -110,6 +115,28 @@ namespace AIDIMS.App.Controllers.API
                 return NotFound();
 
             return Ok(result);
+        }
+
+        [HttpPost("upload")]
+        [Consumes("multipart/form-data")]
+        public async Task<IActionResult> Upload(IFormFile file)
+        {
+            if (file == null || file.Length == 0)
+                return BadRequest("File is empty");
+
+            var uploadsRoot = Path.Combine(_env.WebRootPath ?? Path.Combine(_env.ContentRootPath, "wwwroot"), "dicom");
+            if (!Directory.Exists(uploadsRoot))
+                Directory.CreateDirectory(uploadsRoot);
+
+            var ext = Path.GetExtension(file.FileName);
+            var fileName = Guid.NewGuid() + ext;
+            var fullPath = Path.Combine(uploadsRoot, fileName);
+            using (var stream = new FileStream(fullPath, FileMode.Create))
+            {
+                await file.CopyToAsync(stream);
+            }
+            var relativePath = $"/dicom/{fileName}";
+            return Ok(new { filePath = relativePath });
         }
     }
 }

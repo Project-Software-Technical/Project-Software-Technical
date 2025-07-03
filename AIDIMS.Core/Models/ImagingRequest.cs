@@ -1,6 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace AIDIMS.Core.Models
 {
@@ -14,6 +15,13 @@ namespace AIDIMS.Core.Models
 
         [Required]
         public int ServiceID { get; set; }
+
+        // Mã kỹ thuật viên phụ trách thực hiện chụp
+        public int? TechnicianID { get; set; }
+
+        [ForeignKey("TechnicianID")]
+        [JsonIgnore]
+        public virtual HospitalStaff Technician { get; set; }
 
         public DateTime RequestDate { get; set; }
 

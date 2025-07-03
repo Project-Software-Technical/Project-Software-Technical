@@ -16,6 +16,9 @@ namespace AIDIMS.Core.DTOs.Response
         public string Notes { get; set; }
         public string Status { get; set; }
 
+        public int? TechnicianID { get; set; }
+        public string TechnicianName { get; set; }
+
         // Thông tin liên quan
         public string ServiceName { get; set; }
         public string PatientName { get; set; }

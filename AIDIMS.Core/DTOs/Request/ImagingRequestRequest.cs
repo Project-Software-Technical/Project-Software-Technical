@@ -14,6 +14,9 @@ namespace AIDIMS.Core.DTOs.Request
         [Required(ErrorMessage = "Mã dịch vụ là bắt buộc")]
         public int ServiceID { get; set; }
 
+        [Required(ErrorMessage = "Mã kỹ thuật viên là bắt buộc")]
+        public int TechnicianID { get; set; }
+
         [Required(ErrorMessage = "Ngày yêu cầu là bắt buộc")]
         public DateTime RequestDate { get; set; }
 
@@ -40,5 +43,7 @@ namespace AIDIMS.Core.DTOs.Request
 
         [StringLength(20, ErrorMessage = "Trạng thái không được vượt quá 20 ký tự")]
         public string Status { get; set; }
+
+        public int? TechnicianID { get; set; }
     }
 }

@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace AIDIMS.Core.Migrations
 {
     [DbContext(typeof(AIDIMSDbContext))]
-    [Migration("20250701070835_RenameUsernameToEmail")]
-    partial class RenameUsernameToEmail
+    [Migration("20250703013343_AddTechnicianToImagingRequest")]
+    partial class AddTechnicianToImagingRequest
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,6 +24,77 @@ namespace AIDIMS.Core.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
+
+            modelBuilder.Entity("AIDIMS.Core.Models.Appointment", b =>
+                {
+                    b.Property<int>("AppointmentID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("AppointmentID"));
+
+                    b.Property<DateOnly>("Date")
+                        .HasColumnType("date");
+
+                    b.Property<string>("Department")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
+
+                    b.Property<string>("Note")
+                        .HasMaxLength(500)
+                        .HasColumnType("character varying(500)");
+
+                    b.Property<int>("PatientID")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("character varying(20)");
+
+                    b.Property<TimeOnly>("Time")
+                        .HasColumnType("time without time zone");
+
+                    b.HasKey("AppointmentID");
+
+                    b.HasIndex("PatientID");
+
+                    b.ToTable("Appointments");
+                });
+
+            modelBuilder.Entity("AIDIMS.Core.Models.Department", b =>
+                {
+                    b.Property<int>("DepartmentID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("DepartmentID"));
+
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("character varying(20)");
+
+                    b.Property<string>("Description")
+                        .HasMaxLength(255)
+                        .HasColumnType("character varying(255)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("boolean");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
+
+                    b.HasKey("DepartmentID");
+
+                    b.HasIndex("Code")
+                        .IsUnique();
+
+                    b.ToTable("Departments");
+                });
 
             modelBuilder.Entity("AIDIMS.Core.Models.DiagnosisResult", b =>
                 {
@@ -142,6 +213,9 @@ namespace AIDIMS.Core.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("timestamp with time zone");
 
+                    b.Property<int?>("DepartmentID")
+                        .HasColumnType("integer");
+
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -156,6 +230,9 @@ namespace AIDIMS.Core.Migrations
                         .IsRequired()
                         .HasMaxLength(20)
                         .HasColumnType("character varying(20)");
+
+                    b.Property<bool>("IsAvailable")
+                        .HasColumnType("boolean");
 
                     b.Property<string>("Phone")
                         .IsRequired()
@@ -173,6 +250,8 @@ namespace AIDIMS.Core.Migrations
                         .HasColumnType("character varying(20)");
 
                     b.HasKey("StaffID");
+
+                    b.HasIndex("DepartmentID");
 
                     b.ToTable("HospitalStaffs");
                 });
@@ -207,11 +286,16 @@ namespace AIDIMS.Core.Migrations
                         .HasMaxLength(20)
                         .HasColumnType("character varying(20)");
 
+                    b.Property<int?>("TechnicianID")
+                        .HasColumnType("integer");
+
                     b.HasKey("RequestID");
 
                     b.HasIndex("RecordID");
 
                     b.HasIndex("ServiceID");
+
+                    b.HasIndex("TechnicianID");
 
                     b.ToTable("ImagingRequests");
                 });
@@ -224,43 +308,80 @@ namespace AIDIMS.Core.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("RecordID"));
 
+                    b.Property<int>("AppointmentID")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("CreatedBy")
+                        .HasColumnType("integer");
+
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<string>("Diagnosis")
-                        .IsRequired()
-                        .HasMaxLength(500)
-                        .HasColumnType("character varying(500)");
+                    b.Property<int?>("DepartmentID")
+                        .HasColumnType("integer");
+
+                    b.Property<int?>("DoctorID")
+                        .HasColumnType("integer");
 
                     b.Property<DateTime>("ExaminationDate")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<int>("PatientID")
-                        .HasColumnType("integer");
-
-                    b.Property<string>("Result")
+                    b.Property<string>("FinalDiagnosis")
                         .IsRequired()
                         .HasMaxLength(500)
                         .HasColumnType("character varying(500)");
 
-                    b.Property<int>("StaffID")
+                    b.Property<int?>("HospitalStaffStaffID")
                         .HasColumnType("integer");
 
-                    b.Property<string>("Status")
+                    b.Property<string>("InitialDiagnosis")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("character varying(500)");
+
+                    b.Property<int>("PatientID")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("Prescription")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("character varying(500)");
+
+                    b.Property<string>("Priority")
                         .IsRequired()
                         .HasMaxLength(20)
                         .HasColumnType("character varying(20)");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("integer");
 
                     b.Property<string>("Symptoms")
                         .IsRequired()
                         .HasMaxLength(500)
                         .HasColumnType("character varying(500)");
 
+                    b.Property<string>("Treatment")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("character varying(500)");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("timestamp with time zone");
+
                     b.HasKey("RecordID");
 
-                    b.HasIndex("PatientID");
+                    b.HasIndex("AppointmentID")
+                        .IsUnique();
 
-                    b.HasIndex("StaffID");
+                    b.HasIndex("CreatedBy");
+
+                    b.HasIndex("DepartmentID");
+
+                    b.HasIndex("DoctorID");
+
+                    b.HasIndex("HospitalStaffStaffID");
+
+                    b.HasIndex("PatientID");
 
                     b.ToTable("MedicalRecords");
                 });
@@ -307,6 +428,53 @@ namespace AIDIMS.Core.Migrations
                     b.HasKey("PatientID");
 
                     b.ToTable("Patients");
+                });
+
+            modelBuilder.Entity("AIDIMS.Core.Models.PatientAssignment", b =>
+                {
+                    b.Property<int>("AssignmentID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("AssignmentID"));
+
+                    b.Property<int?>("AppointmentID")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime>("AssignedDate")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<int>("DoctorID")
+                        .HasColumnType("integer");
+
+                    b.Property<int?>("MedicalRecordID")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("Note")
+                        .HasMaxLength(500)
+                        .HasColumnType("character varying(500)");
+
+                    b.Property<int>("PatientID")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("character varying(20)");
+
+                    b.HasKey("AssignmentID");
+
+                    b.HasIndex("AppointmentID")
+                        .IsUnique();
+
+                    b.HasIndex("DoctorID");
+
+                    b.HasIndex("MedicalRecordID")
+                        .IsUnique();
+
+                    b.HasIndex("PatientID");
+
+                    b.ToTable("PatientAssignments");
                 });
 
             modelBuilder.Entity("AIDIMS.Core.Models.Role", b =>
@@ -411,6 +579,17 @@ namespace AIDIMS.Core.Migrations
                     b.ToTable("Users");
                 });
 
+            modelBuilder.Entity("AIDIMS.Core.Models.Appointment", b =>
+                {
+                    b.HasOne("AIDIMS.Core.Models.Patient", "Patient")
+                        .WithMany("Appointments")
+                        .HasForeignKey("PatientID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Patient");
+                });
+
             modelBuilder.Entity("AIDIMS.Core.Models.DiagnosisResult", b =>
                 {
                     b.HasOne("AIDIMS.Core.Models.MedicalRecord", "MedicalRecord")
@@ -439,6 +618,15 @@ namespace AIDIMS.Core.Migrations
                     b.Navigation("Technician");
                 });
 
+            modelBuilder.Entity("AIDIMS.Core.Models.HospitalStaff", b =>
+                {
+                    b.HasOne("AIDIMS.Core.Models.Department", "Department")
+                        .WithMany()
+                        .HasForeignKey("DepartmentID");
+
+                    b.Navigation("Department");
+                });
+
             modelBuilder.Entity("AIDIMS.Core.Models.ImagingRequest", b =>
                 {
                     b.HasOne("AIDIMS.Core.Models.MedicalRecord", "MedicalRecord")
@@ -453,26 +641,87 @@ namespace AIDIMS.Core.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("AIDIMS.Core.Models.HospitalStaff", "Technician")
+                        .WithMany()
+                        .HasForeignKey("TechnicianID");
+
                     b.Navigation("MedicalRecord");
 
                     b.Navigation("Service");
+
+                    b.Navigation("Technician");
                 });
 
             modelBuilder.Entity("AIDIMS.Core.Models.MedicalRecord", b =>
                 {
+                    b.HasOne("AIDIMS.Core.Models.Appointment", "Appointment")
+                        .WithOne("MedicalRecord")
+                        .HasForeignKey("AIDIMS.Core.Models.MedicalRecord", "AppointmentID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("AIDIMS.Core.Models.HospitalStaff", "Receptionist")
+                        .WithMany()
+                        .HasForeignKey("CreatedBy")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("AIDIMS.Core.Models.Department", "Department")
+                        .WithMany()
+                        .HasForeignKey("DepartmentID");
+
+                    b.HasOne("AIDIMS.Core.Models.HospitalStaff", "Doctor")
+                        .WithMany()
+                        .HasForeignKey("DoctorID");
+
+                    b.HasOne("AIDIMS.Core.Models.HospitalStaff", null)
+                        .WithMany("MedicalRecords")
+                        .HasForeignKey("HospitalStaffStaffID");
+
                     b.HasOne("AIDIMS.Core.Models.Patient", "Patient")
                         .WithMany("MedicalRecords")
                         .HasForeignKey("PatientID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("AIDIMS.Core.Models.HospitalStaff", "HospitalStaff")
-                        .WithMany("MedicalRecords")
-                        .HasForeignKey("StaffID")
+                    b.Navigation("Appointment");
+
+                    b.Navigation("Department");
+
+                    b.Navigation("Doctor");
+
+                    b.Navigation("Patient");
+
+                    b.Navigation("Receptionist");
+                });
+
+            modelBuilder.Entity("AIDIMS.Core.Models.PatientAssignment", b =>
+                {
+                    b.HasOne("AIDIMS.Core.Models.Appointment", "Appointment")
+                        .WithOne("PatientAssignment")
+                        .HasForeignKey("AIDIMS.Core.Models.PatientAssignment", "AppointmentID");
+
+                    b.HasOne("AIDIMS.Core.Models.HospitalStaff", "Doctor")
+                        .WithMany("PatientAssignments")
+                        .HasForeignKey("DoctorID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("HospitalStaff");
+                    b.HasOne("AIDIMS.Core.Models.MedicalRecord", "MedicalRecord")
+                        .WithOne("PatientAssignment")
+                        .HasForeignKey("AIDIMS.Core.Models.PatientAssignment", "MedicalRecordID");
+
+                    b.HasOne("AIDIMS.Core.Models.Patient", "Patient")
+                        .WithMany("PatientAssignments")
+                        .HasForeignKey("PatientID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Appointment");
+
+                    b.Navigation("Doctor");
+
+                    b.Navigation("MedicalRecord");
 
                     b.Navigation("Patient");
                 });
@@ -496,11 +745,22 @@ namespace AIDIMS.Core.Migrations
                     b.Navigation("Role");
                 });
 
+            modelBuilder.Entity("AIDIMS.Core.Models.Appointment", b =>
+                {
+                    b.Navigation("MedicalRecord")
+                        .IsRequired();
+
+                    b.Navigation("PatientAssignment")
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("AIDIMS.Core.Models.HospitalStaff", b =>
                 {
                     b.Navigation("DicomImages");
 
                     b.Navigation("MedicalRecords");
+
+                    b.Navigation("PatientAssignments");
 
                     b.Navigation("User")
                         .IsRequired();
@@ -513,11 +773,18 @@ namespace AIDIMS.Core.Migrations
                     b.Navigation("DicomImages");
 
                     b.Navigation("ImagingRequests");
+
+                    b.Navigation("PatientAssignment")
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("AIDIMS.Core.Models.Patient", b =>
                 {
+                    b.Navigation("Appointments");
+
                     b.Navigation("MedicalRecords");
+
+                    b.Navigation("PatientAssignments");
                 });
 
             modelBuilder.Entity("AIDIMS.Core.Models.Role", b =>

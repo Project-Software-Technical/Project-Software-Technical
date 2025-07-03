@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AIDIMS.Core.Models
 {
@@ -35,9 +36,17 @@ namespace AIDIMS.Core.Models
 
         public DateTime CreatedDate { get; set; }
 
+        // New fields
+        public int? DepartmentID { get; set; }
+        [ForeignKey("DepartmentID")]
+        public virtual Department Department { get; set; }
+
+        public bool IsAvailable { get; set; } = true;
+
         // Navigation properties
         public virtual User User { get; set; }
         public virtual ICollection<MedicalRecord> MedicalRecords { get; set; }
         public virtual ICollection<DicomImage> DicomImages { get; set; }
+        public virtual ICollection<PatientAssignment> PatientAssignments { get; set; }
     }
 }

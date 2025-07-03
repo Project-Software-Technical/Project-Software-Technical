@@ -35,10 +35,12 @@ namespace AIDIMS.App.Mapping
             // MedicalRecord mappings
             CreateMap<MedicalRecord, MedicalRecordResponse>()
                 .ForMember(dest => dest.PatientName, opt => opt.MapFrom(src => src.Patient.FullName))
-                .ForMember(dest => dest.DoctorName, opt => opt.MapFrom(src => src.HospitalStaff.FullName));
+                .ForMember(dest => dest.DoctorName, opt => opt.MapFrom(src => src.Doctor.FullName));
             CreateMap<MedicalRecord, MedicalRecordDetailResponse>();
             CreateMap<CreateMedicalRecordRequest, MedicalRecord>();
             CreateMap<UpdateMedicalRecordRequest, MedicalRecord>();
+            CreateMap<MedicalRecordCreateDto, MedicalRecord>();
+            CreateMap<MedicalRecordUpdateDto, MedicalRecord>();
 
             // Service mappings
             CreateMap<Service, ServiceResponse>();
@@ -62,6 +64,27 @@ namespace AIDIMS.App.Mapping
             CreateMap<DicomImage, DicomImageDetailResponse>();
             CreateMap<CreateDicomImageRequest, DicomImage>();
             CreateMap<UpdateDicomImageRequest, DicomImage>();
+
+            // Appointment mappings
+            CreateMap<Appointment, AppointmentResponse>();
+            CreateMap<CreateAppointmentRequest, Appointment>();
+            CreateMap<UpdateAppointmentRequest, Appointment>();
+
+            // Department mappings
+            CreateMap<Department, DepartmentResponse>();
+            CreateMap<CreateDepartmentRequest, Department>();
+            CreateMap<UpdateDepartmentRequest, Department>();
+
+            // Doctor mappings
+            CreateMap<HospitalStaff, DoctorResponse>()
+                .ForMember(dest => dest.DoctorID, opt => opt.MapFrom(src => src.StaffID))
+                .ForMember(dest => dest.Department, opt => opt.MapFrom(src => src.Department != null ? src.Department.Name : null))
+                .ForMember(dest => dest.IsAvailable, opt => opt.MapFrom(src => src.Status == null || src.Status.ToLower() == "đang làm việc"))
+                .ForMember(dest => dest.Specialization, opt => opt.MapFrom(src => src.Position));
+
+            // PatientAssignment mappings
+            CreateMap<PatientAssignment, PatientAssignmentResponse>();
+            CreateMap<CreatePatientAssignmentRequest, PatientAssignment>();
         }
     }
 }

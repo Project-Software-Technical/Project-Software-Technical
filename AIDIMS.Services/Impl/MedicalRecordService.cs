@@ -39,9 +39,29 @@ namespace AIDIMS.Services.Impl
 
         public async Task<MedicalRecordResponse> CreateAsync(CreateMedicalRecordRequest createRequest)
         {
+            // Kiểm tra xem lịch hẹn này đã có hồ sơ y tế hay chưa
+            var duplicates = await _repository.GetAllAsync(1, int.MaxValue);
+            var existed = duplicates.Cast<MedicalRecord>().FirstOrDefault(r => r.AppointmentID == createRequest.AppointmentID);
+            if (existed != null)
+            {
+                // Trả về hồ sơ đã tồn tại để FE có thể dùng luôn
+                return _mapper.Map<MedicalRecordResponse>(existed);
+            }
+
             var medicalRecord = _mapper.Map<MedicalRecord>(createRequest);
+            // Nếu client chưa truyền CreatedBy, tạm gán bằng DoctorID (hoặc 0 nếu null) để tránh lỗi ràng buộc
+            if (medicalRecord.CreatedBy == 0)
+            {
+                medicalRecord.CreatedBy = medicalRecord.DoctorID ?? 0;
+            }
             medicalRecord.CreatedDate = DateTime.UtcNow;
-            medicalRecord.Status = medicalRecord.Status ?? "Mới";
+            medicalRecord.Status = medicalRecord.Status; // giữ nguyên RecordStatus đã set hoặc mặc định
+
+            // Đảm bảo các cột NOT NULL trong DB không bị null
+            medicalRecord.InitialDiagnosis ??= createRequest.Diagnosis ?? string.Empty;
+            medicalRecord.FinalDiagnosis ??= string.Empty;
+            medicalRecord.Treatment ??= string.Empty;
+            medicalRecord.Prescription ??= string.Empty;
 
             var result = await _repository.AddAsync(medicalRecord);
 
@@ -54,7 +74,7 @@ namespace AIDIMS.Services.Impl
                 response.PatientName = patient.FullName;
             }
 
-            var doctor = await _staffRepository.GetByIdAsync(result.StaffID);
+            var doctor = await _staffRepository.GetByIdAsync(result.DoctorID ?? 0);
             if (doctor != null)
             {
                 response.DoctorName = doctor.FullName;
@@ -82,7 +102,7 @@ namespace AIDIMS.Services.Impl
                     response.PatientName = patient.FullName;
                 }
 
-                var doctor = await _staffRepository.GetByIdAsync(response.StaffID);
+                var doctor = await _staffRepository.GetByIdAsync(response.DoctorID);
                 if (doctor != null)
                 {
                     response.DoctorName = doctor.FullName;
@@ -112,7 +132,7 @@ namespace AIDIMS.Services.Impl
                 response.PatientName = patient.FullName;
             }
 
-            var doctor = await _staffRepository.GetByIdAsync(entity.StaffID);
+            var doctor = await _staffRepository.GetByIdAsync(entity.DoctorID ?? 0);
             if (doctor != null)
             {
                 response.DoctorName = doctor.FullName;
@@ -137,7 +157,7 @@ namespace AIDIMS.Services.Impl
             }
 
             // Lấy thông tin bác sĩ
-            var doctor = await _staffRepository.GetByIdAsync(entity.StaffID);
+            var doctor = await _staffRepository.GetByIdAsync(entity.DoctorID ?? 0);
             if (doctor != null)
             {
                 response.DoctorName = doctor.FullName;
@@ -174,7 +194,7 @@ namespace AIDIMS.Services.Impl
                     response.PatientName = patient.FullName;
                 }
 
-                var doctor = await _staffRepository.GetByIdAsync(response.StaffID);
+                var doctor = await _staffRepository.GetByIdAsync(response.DoctorID);
                 if (doctor != null)
                 {
                     response.DoctorName = doctor.FullName;
@@ -217,7 +237,7 @@ namespace AIDIMS.Services.Impl
                 response.PatientName = patient.FullName;
             }
 
-            var doctor = await _staffRepository.GetByIdAsync(result.StaffID);
+            var doctor = await _staffRepository.GetByIdAsync(result.DoctorID ?? 0);
             if (doctor != null)
             {
                 response.DoctorName = doctor.FullName;

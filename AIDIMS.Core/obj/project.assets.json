@@ -5110,11 +5110,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\TichPhan\\AIDIMS\\BE\\Project-Software-Technical\\AIDIMS.Core\\AIDIMS.Core.csproj",
+      "projectUniqueName": "D:\\TichPhan\\AIDIMS\\BE\\BE\\AIDIMS.Core\\AIDIMS.Core.csproj",
       "projectName": "AIDIMS.Core",
-      "projectPath": "D:\\TichPhan\\AIDIMS\\BE\\Project-Software-Technical\\AIDIMS.Core\\AIDIMS.Core.csproj",
+      "projectPath": "D:\\TichPhan\\AIDIMS\\BE\\BE\\AIDIMS.Core\\AIDIMS.Core.csproj",
       "packagesPath": "C:\\Users\\thanh\\.nuget\\packages\\",
-      "outputPath": "D:\\TichPhan\\AIDIMS\\BE\\Project-Software-Technical\\AIDIMS.Core\\obj\\",
+      "outputPath": "D:\\TichPhan\\AIDIMS\\BE\\BE\\AIDIMS.Core\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\thanh\\AppData\\Roaming\\NuGet\\NuGet.Config"

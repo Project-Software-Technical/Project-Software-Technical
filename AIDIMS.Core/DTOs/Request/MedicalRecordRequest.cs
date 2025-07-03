@@ -12,7 +12,10 @@ namespace AIDIMS.Core.DTOs.Request
         public int PatientID { get; set; }
 
         [Required(ErrorMessage = "Mã bác sĩ là bắt buộc")]
-        public int StaffID { get; set; }
+        public int DoctorID { get; set; }
+
+        [Required(ErrorMessage = "Mã lịch hẹn là bắt buộc")]
+        public int AppointmentID { get; set; }
 
         [StringLength(500, ErrorMessage = "Triệu chứng không được vượt quá 500 ký tự")]
         public string Symptoms { get; set; }
@@ -36,7 +39,10 @@ namespace AIDIMS.Core.DTOs.Request
     public class UpdateMedicalRecordRequest
     {
         [Required(ErrorMessage = "Mã bác sĩ là bắt buộc")]
-        public int StaffID { get; set; }
+        public int DoctorID { get; set; }
+
+        [Required(ErrorMessage = "Mã lịch hẹn là bắt buộc")]
+        public int AppointmentID { get; set; }
 
         [StringLength(500, ErrorMessage = "Triệu chứng không được vượt quá 500 ký tự")]
         public string Symptoms { get; set; }
